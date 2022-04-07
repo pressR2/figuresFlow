@@ -18,12 +18,12 @@ const SignIn: FunctionComponent<SignInProperties> = () => {
                     <div className='inner-input'>
                         <input type='checkbox'></input>
                         <label>Remember Me?</label>
-                        <a href='#'>Forget Password?</a>
+                        <a href='/#'>Forget Password?</a>
                     </div>
                     <button className='sign-in-bt' type='submit'>Sign In</button>
                     <div className='inner-label'>
                         <label>Don't have an account?</label>
-                        <a href='#'>Click here to create one</a>
+                        <a href='/#'>Click here to create one</a>
                     </div>
                 </form>
             </div>

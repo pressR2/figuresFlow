@@ -23,7 +23,7 @@ const SignUp: FunctionComponent<SignUpProperties> = () => {
                     <button className='sign-up-bt' type='submit'>Sign Up</button>
                     <div className='inner-label'>
                         <label>Already Have An Account? Then</label>
-                        <a href='#'>Sign In</a>
+                        <a href='/#'>Sign In</a>
                     </div>
                 </form>
             </div>

@@ -4,6 +4,11 @@ import SignUp from './components/SignUp';
 function App() {
   return (
     <div className="App">
+      {/* 
+        / -> Home
+        /signup -> SignUp
+        /signin -> SignIn
+      */}
       <SignIn></SignIn>
       {/* <SignUp></SignUp> */}
     </div>
