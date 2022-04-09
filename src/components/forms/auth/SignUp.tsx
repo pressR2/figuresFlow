@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import './SignForms.css';
 
 type SignUpProperties = {
@@ -10,7 +11,7 @@ type SignUpProperties = {
 }
 
 const SignUp: FunctionComponent<SignUpProperties> = () => {
-    return(
+    return (
         <div className='container'>
             <div className='form-container'>
                 <form>
@@ -23,7 +24,7 @@ const SignUp: FunctionComponent<SignUpProperties> = () => {
                     <button className='sign-up_bt' type='submit'>Sign Up</button>
                     <div className='inner-label'>
                         <p>Already Have An Account? Then</p>
-                        <a href='/#' className='sign-in_link'>Sign In</a>
+                        <Link to='/signIn' className='sign-in_link'>Sign In</Link>
                     </div>
                 </form>
             </div>

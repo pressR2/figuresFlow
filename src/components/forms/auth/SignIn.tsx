@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import './SignForms.css';
 
 type SignInProperties = {
@@ -8,7 +9,7 @@ type SignInProperties = {
 }
 
 const SignIn: FunctionComponent<SignInProperties> = () => {
-    return(
+    return (
         <div className='container'>
             <div className='form-container'>
                 <form>
@@ -18,12 +19,12 @@ const SignIn: FunctionComponent<SignInProperties> = () => {
                     <div className='inner-input'>
                         <input type='checkbox'></input>
                         <label>Remember Me?</label>
-                        <a href='/#'>Forgot Password?</a>
+                        <a href='/#' className='forgot-password_link'>Forgot Password?</a>
                     </div>
                     <button className='sign-in_bt' type='submit'>Sign In</button>
                     <div className='inner-label'>
                         <p>Don't have an account?</p>
-                        <a href='/#' className='sign-in_link'>Click here to create one</a>
+                        <Link to='/signUp' className='sign-in_link'>Click here to create one</Link>
                     </div>
                 </form>
             </div>
