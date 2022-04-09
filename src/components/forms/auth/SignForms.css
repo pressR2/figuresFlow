@@ -84,6 +84,7 @@ input {
     margin-right: 7px;
 }
 
-.sign-in_link {
+.sign-in_link,
+.forgot-password_link {
     text-decoration: none;
 }
