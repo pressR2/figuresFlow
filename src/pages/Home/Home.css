@@ -20,7 +20,6 @@
 
 h1 {
     font-family: 'Montserrat', sans-serif;
-    z-index: 1;
     margin-top: 250px;
     font-size: 5em;
     margin-left: 70px;
@@ -38,32 +37,37 @@ h1 {
 .buttons-container {
     z-index: 1;
     height: 220px;
+    margin-top: 50px;
+    margin-left: 280px;
+    text-align: center;
+}
+
+.link-list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-top: 80px;
-    margin-left: 300px;
 }
 
+.home-page_demo,
 .home-page_sign-in,
-.home-page_sign-up,
-.home-page_demo {
+.home-page_sign-up {
     width: 175px;
     border-radius: 8px;
-	border: 1px solid #ff4b2b;
-	background-color: #ff4b2b;
-	color: #fff;
-	font-size: 19px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff4b2b;
+    background-color: #ff4b2b;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 15px 20px;
+    letter-spacing: 1px;
+    box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 50%);
     transition: all ease 0.2s;
+    text-decoration: none;
+    margin-top: 40px;
 }
 
+.home-page_demo:hover,
 .home-page_sign-in:hover,
-.home-page_sign-up:hover,
-.home-page_demo:hover {
+.home-page_sign-up:hover {
     cursor: pointer;
     transform: translateY(-2px);
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
