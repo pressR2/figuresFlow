@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import './SignIn_SignUp.css';
+import './SignForms.css';
 
 type SignInProperties = {
     // email: string;
@@ -18,12 +18,12 @@ const SignIn: FunctionComponent<SignInProperties> = () => {
                     <div className='inner-input'>
                         <input type='checkbox'></input>
                         <label>Remember Me?</label>
-                        <a href='/#'>Forget Password?</a>
+                        <a href='/#'>Forgot Password?</a>
                     </div>
-                    <button className='sign-in-bt' type='submit'>Sign In</button>
+                    <button className='sign-in_bt' type='submit'>Sign In</button>
                     <div className='inner-label'>
-                        <label>Don't have an account?</label>
-                        <a href='/#'>Click here to create one</a>
+                        <p>Don't have an account?</p>
+                        <a href='/#' className='sign-in_link'>Click here to create one</a>
                     </div>
                 </form>
             </div>

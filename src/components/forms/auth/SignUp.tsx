@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import "./SignIn_SignUp.css";
+import './SignForms.css';
 
 type SignUpProperties = {
     // firstName: string;
@@ -20,10 +20,10 @@ const SignUp: FunctionComponent<SignUpProperties> = () => {
                     <input placeholder='Email *'></input>
                     <input placeholder='Password *'></input>
                     <input placeholder='Retype Password *'></input>
-                    <button className='sign-up-bt' type='submit'>Sign Up</button>
+                    <button className='sign-up_bt' type='submit'>Sign Up</button>
                     <div className='inner-label'>
-                        <label>Already Have An Account? Then</label>
-                        <a href='/#'>Sign In</a>
+                        <p>Already Have An Account? Then</p>
+                        <a href='/#' className='sign-in_link'>Sign In</a>
                     </div>
                 </form>
             </div>

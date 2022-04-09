@@ -49,8 +49,8 @@ input {
     font-weight: 500;
 }
 
-.sign-in-bt,
-.sign-up-bt {
+.sign-in_bt,
+.sign-up_bt {
     width: 150px;
 	border: 1px solid #ff4b2b;
 	background-color: #ff4b2b;
@@ -59,15 +59,24 @@ input {
 	letter-spacing: 1px;
     border-radius: 2px;
     box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
+    transition: all ease 0.2s;
 }
 
-.sign-up-bt {
+.sign-up_bt {
     margin-top: 30px; 
+}
+
+.sign-in_bt:hover,
+.sign-up_bt:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
 .inner-label {
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin: 20px 0;
 }
 
@@ -75,6 +84,6 @@ input {
     margin-right: 7px;
 }
 
-a {
+.sign-in_link {
     text-decoration: none;
 }
