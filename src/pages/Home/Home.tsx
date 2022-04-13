@@ -5,16 +5,11 @@ import "./Home.css";
 
 function Home() {
     return (
-        <div className="Home">
-            <div className="home-page-container">
+        <div className="home-page-container">
+            <div className="title-and-links">
                 <div className="title">
                     <h1>Craft Hobby Journal</h1>
                 </div>
-                <img
-                    className="home-page-image"
-                    src={homePageImage}
-                    alt="River Troll"
-                ></img>
                 <div className="buttons-container">
                     <ul className="link-list">
                         <Link to="/signIn" className="home-page_sign-in">
@@ -29,6 +24,11 @@ function Home() {
                     </ul>
                 </div>
             </div>
+            <img
+                className="home-page-image"
+                src={homePageImage}
+                alt="River Troll"
+            ></img>
         </div>
     );
 }
