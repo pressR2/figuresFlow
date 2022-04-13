@@ -23,9 +23,14 @@ const SignIn: FunctionComponent<SignInProperties> = () => {
                             Forgot Password?
                         </a>
                     </div>
-                    <button className="sign-in_bt" type="submit">
-                        Sign In
-                    </button>
+                    <div className="buttons-container">
+                        <button className="sign-in_bt" type="submit">
+                            Sign In
+                        </button>
+                        <Link to="/#" className="back-to-home">
+                            Back
+                        </Link>
+                    </div>
                     <div className="inner-label">
                         <p>Don't have an account?</p>
                         <Link to="/signUp" className="sign-in_link">

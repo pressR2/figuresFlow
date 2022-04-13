@@ -4,8 +4,8 @@
 }
 
 .home-page-image {
-    position: fixed; 
-    top: 0; 
+    position: fixed;
+    top: 0;
     left: 12%;
     width: 100%;
     min-height: 100%;
@@ -34,7 +34,7 @@ h1 {
     text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
-.buttons-container {
+.buttons-container_home {
     z-index: 1;
     margin-top: 50px;
     text-align: center;

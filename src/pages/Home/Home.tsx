@@ -10,7 +10,7 @@ function Home() {
                 <div className="title">
                     <h1>Craft Hobby Journal</h1>
                 </div>
-                <div className="buttons-container">
+                <div className="buttons-container_home">
                     <ul className="link-list">
                         <Link to="/signIn" className="home-page_sign-in">
                             Sign In

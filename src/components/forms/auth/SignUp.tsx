@@ -21,9 +21,14 @@ const SignUp: FunctionComponent<SignUpProperties> = () => {
                     <input placeholder="Email *"></input>
                     <input placeholder="Password *"></input>
                     <input placeholder="Retype Password *"></input>
-                    <button className="sign-up_bt" type="submit">
-                        Sign Up
-                    </button>
+                    <div className="buttons-container">
+                        <button className="sign-up_bt" type="submit">
+                            Sign Up
+                        </button>
+                        <Link to="/#" className="back-to-home">
+                            Back
+                        </Link>
+                    </div>
                     <div className="inner-label">
                         <p>Already Have An Account? Then</p>
                         <Link to="/signIn" className="sign-in_link">
