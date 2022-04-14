@@ -1,19 +1,23 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./SignForms.css";
 import { SignUpProperties } from "../../../models";
 
 const SignUp: FunctionComponent<SignUpProperties> = () => {
+    const { register, handleSubmit } = useForm<SignUpProperties>();
+    const [data, setData] = useState("");
+
     return (
         <div className="container">
             <div className="form-container">
-                <form>
+                <form onSubmit={handleSubmit((values) => setData(JSON.stringify(values)))}>
                     <h2>Enter Your Details</h2>
-                    <input placeholder="First Name *"></input>
-                    <input placeholder="Last Name *"></input>
-                    <input placeholder="Email *"></input>
-                    <input placeholder="Password *"></input>
-                    <input placeholder="Retype Password *"></input>
+                    <input {...register("firstName")} placeholder="First Name *"></input>
+                    <input {...register("lastName")} placeholder="Last Name *"></input>
+                    <input {...register("email")} placeholder="Email *"></input>
+                    <input {...register("password")} placeholder="Password *"></input>
+                    <input {...register("retypePassword")} placeholder="Retype Password *"></input>
                     <div className="buttons-container">
                         <button className="sign-up_bt" type="submit">
                             Sign Up

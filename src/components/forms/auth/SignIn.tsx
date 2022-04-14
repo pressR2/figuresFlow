@@ -1,18 +1,23 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState} from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import "./SignForms.css";
 import { SignInProperties } from "../../../models";
 
 const SignIn: FunctionComponent<SignInProperties> = () => {
+    const { register, handleSubmit } = useForm<SignInProperties>();
+    const [data, setData] = useState("");
+    console.log(data);
+ 
     return (
         <div className="container">
             <div className="form-container">
-                <form>
+                <form onSubmit={handleSubmit((values) => setData(JSON.stringify(values)))}>
                     <h2>User Sign In</h2>
-                    <input placeholder="Email *"></input>
-                    <input placeholder="Password *"></input>
+                    <input {...register("email")} placeholder="Email *"></input>
+                    <input {...register("password")} placeholder="Password *"></input>
                     <div className="inner-input">
-                        <input type="checkbox"></input>
+                        <input {...register("rememberMe")} type="checkbox"></input>
                         <label>Remember Me?</label>
                         <a href="/#" className="forgot-password_link">
                             Forgot Password?
