@@ -1,14 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import "./SignForms.css";
-
-type SignUpProperties = {
-    // firstName: string;
-    // lastName: string;
-    // email: string;
-    // password: string | number;
-    // retypePassword: string | number;
-};
+import { SignUpProperties } from "../../../models";
 
 const SignUp: FunctionComponent<SignUpProperties> = () => {
     return (
