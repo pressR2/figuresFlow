@@ -15,9 +15,9 @@ const SignUp: FunctionComponent<SignUpProperties> = () => {
                     <h2>Enter Your Details</h2>
                     <input {...register("firstName")} placeholder="First Name *"></input>
                     <input {...register("lastName")} placeholder="Last Name *"></input>
-                    <input {...register("email")} placeholder="Email *"></input>
-                    <input {...register("password")} placeholder="Password *"></input>
-                    <input {...register("retypePassword")} placeholder="Retype Password *"></input>
+                    <input {...register("email")} type="email" placeholder="Email *"></input>
+                    <input {...register("password")} type="password" placeholder="Password *"></input>
+                    <input {...register("retypePassword")} type="password" placeholder="Retype Password *"></input>
                     <div className="buttons-container">
                         <button className="sign-up_bt" type="submit">
                             Sign Up

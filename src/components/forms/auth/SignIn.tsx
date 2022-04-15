@@ -13,11 +13,11 @@ const SignIn: FunctionComponent<SignInProperties> = () => {
             <div className="form-container">
                 <form onSubmit={handleSubmit((values) => setData(JSON.stringify(values)))}>
                     <h2>User Sign In</h2>
-                    <input {...register("email")} placeholder="Email *"></input>
-                    <input {...register("password")} placeholder="Password *"></input>
+                    <input {...register("email")} type="email" placeholder="Email *"></input>
+                    <input {...register("password")} type="password" placeholder="Password *"></input>
                     <div className="inner-input">
-                        <input {...register("rememberMe")} type="checkbox"></input>
-                        <label>Remember Me?</label>
+                        <input {...register("rememberMe")} type="checkbox" id="rememberMe"></input>
+                        <label htmlFor="rememberMe">Remember Me</label>
                         <a href="/#" className="forgot-password_link">
                             Forgot Password?
                         </a>
