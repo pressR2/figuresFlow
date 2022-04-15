@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import homePageImage from "../../images/home-page.jpg";
 import "./Home.css";
@@ -28,7 +27,7 @@ function Home() {
                 className="home-page-image"
                 src={homePageImage}
                 alt="River Troll"
-            ></img>
+            />
         </div>
     );
 }

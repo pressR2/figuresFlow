@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState} from "react";
+import { FunctionComponent, useState} from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./SignForms.css";
@@ -7,7 +7,6 @@ import { SignInProperties } from "../../../models";
 const SignIn: FunctionComponent<SignInProperties> = () => {
     const { register, handleSubmit } = useForm<SignInProperties>();
     const [data, setData] = useState("");
-    console.log(data);
  
     return (
         <div className="container">
