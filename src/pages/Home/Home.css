@@ -1,0 +1,77 @@
+.home-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page-image {
+    position: fixed;
+    top: 0;
+    left: 12%;
+    width: 100%;
+    min-height: 100%;
+}
+
+.title-and-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.title {
+    background-image: url('../../images/splash.svg');
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-position: -5.5% 50%;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5em;
+    margin-left: 65px;
+    color: #726a72;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+
+.buttons-container_home {
+    z-index: 1;
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    max-width: 45%;
+}
+
+.link-list {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.home-page_demo,
+.home-page_sign-in,
+.home-page_sign-up {
+    border-radius: 2px;
+    border: 1px solid #ff4b2b;
+    background-color: #ff4b2b;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 15px 20px;
+    letter-spacing: 1px;
+    box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 50%);
+    transition: all ease 0.2s;
+    text-decoration: none;
+    margin-top: 40px;
+}
+
+.home-page_demo:hover,
+.home-page_sign-in:hover,
+.home-page_sign-up:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}

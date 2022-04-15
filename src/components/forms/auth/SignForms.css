@@ -11,7 +11,7 @@
     max-width: 100%;
     border: 1px solid #e0dbdb;
     border-radius: 3px;
-    box-shadow: 0 1px 35px rgba(0, 0, 0, 0.02), 0 7px 15px rgba(0, 0, 0, 0.15)
+    box-shadow: 0 1px 35px rgba(0, 0, 0, 0.02), 0 7px 15px rgba(0, 0, 0, 0.15);
 }
 
 form {
@@ -30,18 +30,17 @@ input {
     border-bottom: 1px solid #808080;
 }
 
-.inner-input { 
+.inner-input {
     display: flex;
     flex-direction: row;
+    margin: 25px 0;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin: 20px 0;
 }
 
 .inner-input :first-child {
     width: 20px;
     height: 15px;
-    margin-right: 10px;
 }
 
 .inner-input :nth-child(2) {
@@ -49,8 +48,28 @@ input {
     font-weight: 500;
 }
 
-.sign-in-bt,
-.sign-up-bt {
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.back-to-home {
+    background-color: #ece9e9;
+    color: #808080;
+    font-size: 14px;
+    box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
+    transition: all ease 0.2s;
+    text-decoration: none;
+    padding: 11.5px 58.5px;
+    border-radius: 2px;
+    margin-left: 20px;
+    font-family: "Arial";
+}
+
+.sign-in_bt,
+.sign-up_bt {
     width: 150px;
 	border: 1px solid #ff4b2b;
 	background-color: #ff4b2b;
@@ -59,15 +78,25 @@ input {
 	letter-spacing: 1px;
     border-radius: 2px;
     box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
+    transition: all ease 0.2s;
 }
 
-.sign-up-bt {
-    margin-top: 30px; 
+.sign-up_bt {
+    margin-top: 30px;
+}
+
+.sign-in_bt:hover,
+.sign-up_bt:hover,
+.back-to-home:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 20px 2px rgba(104, 68, 68, 0.22);
 }
 
 .inner-label {
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin: 20px 0;
 }
 
@@ -75,6 +104,7 @@ input {
     margin-right: 7px;
 }
 
-a {
+.sign-in_link,
+.forgot-password_link {
     text-decoration: none;
 }
