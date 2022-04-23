@@ -1,4 +1,4 @@
-export type SignUpProperties = {
+export type SignUpProps = {
     firstName: string;
     lastName: string;
     email: string;
@@ -6,8 +6,17 @@ export type SignUpProperties = {
     retypePassword: string;
 };
 
-export type SignInProperties = {
+export type SignInProps = {
     email: string;
     password: string;
     rememberMe: boolean;
+};
+
+export type ForgotPasswordProps = {
+    email: string;
+};
+
+export type AuthContextProps = {
+    email: string;
+    password: string;
 };
