@@ -26,9 +26,8 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
             setError("");
             setLoading(true);
             await authContext?.signUp(emailRef.current!.value, passwordRef.current!.value);
-            navigate("/");
-        } catch (e: unknown){
-            console.log(e);
+            navigate("/signIn");
+        } catch {
             setError("Faild to create an account");
         }
         setLoading(false);

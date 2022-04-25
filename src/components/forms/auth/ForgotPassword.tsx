@@ -22,8 +22,7 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
             setLoading(true);
             await authContext?.resetPassword(emailRef.current!.value);
             setMessage("Check your inbox for further instructions");
-        } catch (e: unknown){
-            console.log(e);
+        } catch {
             setError("Faild to reset password");
         }
         setLoading(false);

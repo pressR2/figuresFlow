@@ -1,6 +1,7 @@
 import SignIn from "./components/forms/auth/SignIn";
 import SignUp from "./components/forms/auth/SignUp";
 import ForgotPassword from "./components/forms/auth/ForgotPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./services/auth/AuthContext";
@@ -37,6 +38,10 @@ function App() {
                                 email=""
                             />
                         }
+                    />
+                    <Route
+                        path="/dashboard"
+                        element={<Dashboard />}
                     />
                 </Routes>
             </BrowserRouter>

@@ -21,9 +21,8 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             setError("");
             setLoading(true);
             await authContext?.signIn(emailRef.current!.value, passwordRef.current!.value);
-            navigate("/");
-        } catch (e: unknown){
-            console.log(e);
+            navigate("/dashboard");
+        } catch {
             setError("Faild to log in");
         }
         setLoading(false);
@@ -34,7 +33,6 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <h2>User Sign In</h2>
-                    {console.log(authContext?.currentUser?.email)}
                     {error && alert(`${error}`)}
                     <input {...register("email")} type="email" ref={emailRef} placeholder=" Email *"></input>
                     <input {...register("password")} type="password" ref={passwordRef} placeholder=" Password *"></input>
