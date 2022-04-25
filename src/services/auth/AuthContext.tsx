@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, User as FirebaseUser } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, User as FirebaseUser } from "firebase/auth";
 import React, { FunctionComponent, useContext, useState, useEffect } from "react";
 import { auth } from "../auth/firebase";
 import { AuthContextProps } from "../../models";
@@ -8,6 +8,7 @@ interface IauthContext {
     signUp: (email: string, password: string) => any;
     signIn: (email: string, password: string) => any;
     resetPassword: (email: string) => any;
+    logOut: () => any;
 }
 
 const AuthContext = React.createContext<IauthContext | null>(null);
@@ -33,6 +34,10 @@ const AuthProvider: FunctionComponent<AuthContextProps> = (props) => {
         return sendPasswordResetEmail(auth, email);
     }
 
+    function logOut() {
+        return signOut(auth);
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             console.log(user)
@@ -46,7 +51,8 @@ const AuthProvider: FunctionComponent<AuthContextProps> = (props) => {
         currentUser,
         signUp,
         signIn,
-        resetPassword
+        resetPassword,
+        logOut
     }
 
     return (
