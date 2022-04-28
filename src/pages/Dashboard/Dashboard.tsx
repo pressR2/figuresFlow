@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useAuth } from "../../services/auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Dashboard() {
-    const [error, setError] = useState("");
+const Dashboard = () => {
+    const [error, setError] = useState<string>("");
     const authContext  = useAuth();
     const navigate = useNavigate();
 
-    async function handleLogOut() {
+    const handleLogOut = async () => {
         setError("");
 
         try {
@@ -21,7 +21,6 @@ export default function Dashboard() {
     return (
         <div>
             <h2>Dashboard</h2>
-            {console.log(authContext?.currentUser?.email)}
             {error && alert(`${error}`)}
             <button className="sign-in_bt" type="button" onClick={handleLogOut}>
                 Log out
@@ -29,3 +28,5 @@ export default function Dashboard() {
         </div>
     )
 }
+
+export default Dashboard;

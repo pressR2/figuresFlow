@@ -1,10 +1,10 @@
-import PrivateRoute from "./components/forms/auth/PrivateRoute";
+import Routing from "./components/routes/Routing";
 import AuthProvider from "./services/auth/AuthContext";
 
-function App() {
+const App = () => {
   return (
     <AuthProvider email="" password="">
-      <PrivateRoute />
+      <Routing />
     </AuthProvider>
   );
 }

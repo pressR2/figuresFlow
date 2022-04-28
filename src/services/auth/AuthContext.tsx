@@ -13,34 +13,33 @@ interface IauthContext {
 
 const AuthContext = React.createContext<IauthContext | null>(null);
 
-export function useAuth() {
+export const useAuth = () => {
     return useContext(AuthContext)
 }
 
 const AuthProvider: FunctionComponent<AuthContextProps> = (props) => {
     const { children } = props;
     const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
-    function signUp(email: string, password: string) {
+    const signUp = (email: string, password: string) => {
         return  createUserWithEmailAndPassword(auth, email, password);
     }
 
-    function signIn(email: string, password: string) {
+    const signIn = (email: string, password: string) => {
         return  signInWithEmailAndPassword(auth, email, password);
     }
 
-    function resetPassword(email: string) {
+    const resetPassword = (email: string) => {
         return sendPasswordResetEmail(auth, email);
     }
 
-    function logOut() {
+    const logOut = () => {
         return signOut(auth);
     }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
-            console.log(user)
             setCurrentUser(user);
             setLoading(false);
         })

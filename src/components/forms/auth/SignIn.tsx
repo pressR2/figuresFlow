@@ -10,11 +10,11 @@ const SignIn: FunctionComponent<SignInProps> = () => {
     const authContext  = useAuth();
     const emailRef = React.useRef<HTMLInputElement>(null);
     const passwordRef = React.useRef<HTMLInputElement>(null);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    async function handleSubmit(e: any) {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {

@@ -1,12 +1,12 @@
-import { useAuth } from "../../../services/auth/AuthContext";
-import Dashboard from "../../../pages/Dashboard/Dashboard";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
-import ForgotPassword from "./ForgotPassword";
-import Home from "../../../pages/Home/Home";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "../../services/auth/AuthContext";
+import Dashboard from "../../pages/Dashboard/Dashboard";
+import SignIn from "../forms/auth/SignIn";
+import SignUp from "../forms/auth/SignUp";
+import ForgotPassword from "../forms/auth/ForgotPassword";
+import Home from "../../pages/Home/Home";
 
-export default function PrivateRoute() {
+const Routing = () => {
   const authContext = useAuth();
 
   return (
@@ -39,3 +39,5 @@ export default function PrivateRoute() {
     </BrowserRouter>
   );
 }
+
+export default Routing;
