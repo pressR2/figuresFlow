@@ -1,29 +1,29 @@
 import React, { FunctionComponent, useState} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./SignForms.css";
-import { SignInProps } from "../../../models";
+import { ForgotPasswordProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
 
-const SignIn: FunctionComponent<SignInProps> = () => {
-    const { register } = useForm<SignInProps>();
+const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
+    const { register } = useForm<ForgotPasswordProps>();
     const authContext  = useAuth();
     const emailRef = React.useRef<HTMLInputElement>(null);
-    const passwordRef = React.useRef<HTMLInputElement>(null);
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
-    const navigate = useNavigate();
+    const [message, setMessage] = useState<string>("");
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {
+            setMessage("");
             setError("");
             setLoading(true);
-            await authContext?.signIn(emailRef.current!.value, passwordRef.current!.value);
-            navigate("/dashboard");
+            await authContext?.resetPassword(emailRef.current!.value);
+            setMessage("Check your inbox for further instructions");
         } catch {
-            setError("Faild to log in");
+            setError("Faild to reset password");
         }
         setLoading(false);
     }
@@ -32,22 +32,15 @@ const SignIn: FunctionComponent<SignInProps> = () => {
         <div className="container">
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <h2>User Sign In</h2>
+                    <h2>Password Reset</h2>
                     {error && alert(`${error}`)}
+                    {message && alert(`${message}`)}
                     <input {...register("email")} type="email" ref={emailRef} placeholder=" Email *"></input>
-                    <input {...register("password")} type="password" ref={passwordRef} placeholder=" Password *"></input>
-                    <div className="inner-input">
-                        <input {...register("rememberMe")} type="checkbox" id="rememberMe"></input>
-                        <label htmlFor="rememberMe">Remember Me</label>
-                        <Link to="/forgotPassword" className="sign_link">
-                            Forgot Password?
-                        </Link>
-                    </div>
                     <div className="buttons-container">
-                        <button className="sign-in_bt" type="submit" disabled={loading}>
-                            Sign In
+                        <button className="reset_bt" type="submit" disabled={loading}>
+                            Reset
                         </button>
-                        <Link to="/#" className="back_bt">
+                        <Link to="/signIn" className="back_bt">
                             Back
                         </Link>
                     </div>
@@ -63,4 +56,4 @@ const SignIn: FunctionComponent<SignInProps> = () => {
     );
 };
 
-export default SignIn;
+export default ForgotPassword;
