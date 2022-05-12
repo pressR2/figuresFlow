@@ -15,7 +15,7 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             .required()
     });
 
-    const { register, handleSubmit, formState: {errors} } = useForm<SignInProps>({
+    const { register, handleSubmit, setValue, formState: {errors} } = useForm<SignInProps>({
         resolver: yupResolver(validationSchema)
     });
     const authContext  = useAuth();
@@ -30,12 +30,28 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             setError("");
             setLoading(true);
             await authContext?.signIn(data.email, data.password);
+            localStorage.setItem("rememberMe", String(data.rememberMe));
+            if (data.rememberMe) {
+                localStorage.setItem(data.email, data.password);
+            }    
             navigate("/dashboard");
         } catch {
             setError("Faild to log in");
         }
         setLoading(false);
     }
+    
+
+    const handleChange = (e: any) => {
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            const value = localStorage.getItem(key || "");
+            if (e.target.value === key) {
+                setValue("password", value || "");
+            }
+        }
+    }
+
 
     if (errors.password && errors.email) {
         errorMessageText="Please fill marked fields";
@@ -53,7 +69,7 @@ const SignIn: FunctionComponent<SignInProps> = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>User Sign In</h2>
                     {error && <span className="invalid-feedback">{error}</span>}
-                    <input {...register("email")} type="email" placeholder="Email *" className={`form-control ${errors.email ? "is-invalid" : ""}`}></input>
+                    <input {...register("email")} type="email" placeholder="Email *" onChange={handleChange} className={`form-control ${errors.email ? "is-invalid" : ""}`}></input>
                     <input {...register("password")} type="password" placeholder="Password *" className={`form-control ${errors.password ? "is-invalid" : ""}`}></input>
                     {errorMessage}
                     <div className="inner-input">

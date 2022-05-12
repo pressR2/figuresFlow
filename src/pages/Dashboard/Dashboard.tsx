@@ -9,9 +9,9 @@ const Dashboard = () => {
 
     const handleLogOut = async () => {
         setError("");
-
         try {
             await authContext?.logOut();
+            localStorage.removeItem(authContext?.currentUser?.email || ""); 
             navigate("/signIn");
         } catch {
             setError("Fail to log out");
