@@ -1,31 +1,33 @@
-import { FunctionComponent, useState} from "react";
+import { FunctionComponent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./SignForms.css";
 import { SignInProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const SignIn: FunctionComponent<SignInProps> = () => {
     const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .required(),
-        password: Yup.string()
-            .required()
+        email: Yup.string().required(),
+        password: Yup.string().required(),
     });
 
-    const { register, handleSubmit, setValue, formState: {errors} } = useForm<SignInProps>({
-        resolver: yupResolver(validationSchema)
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        formState: { errors },
+    } = useForm<SignInProps>({
+        resolver: yupResolver(validationSchema),
     });
-    const authContext  = useAuth();
+    const authContext = useAuth();
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
     let errorMessageText: string = "";
- 
-    const onSubmit: SubmitHandler<SignInProps> = async data => {
 
+    const onSubmit: SubmitHandler<SignInProps> = async (data) => {
         try {
             setError("");
             setLoading(true);
@@ -33,14 +35,13 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             localStorage.setItem("rememberMe", String(data.rememberMe));
             if (data.rememberMe) {
                 localStorage.setItem(data.email, data.password);
-            }    
+            }
             navigate("/dashboard");
         } catch {
             setError("Faild to log in");
         }
         setLoading(false);
-    }
-    
+    };
 
     const handleChange = (e: any) => {
         for (let i = 0; i < localStorage.length; i++) {
@@ -50,13 +51,12 @@ const SignIn: FunctionComponent<SignInProps> = () => {
                 setValue("password", value || "");
             }
         }
-    }
-
+    };
 
     if (errors.password && errors.email) {
-        errorMessageText="Please fill marked fields";
+        errorMessageText = "Please fill marked fields";
     } else if (errors.password || errors.email) {
-        errorMessageText="Please fill marked field";
+        errorMessageText = "Please fill marked field";
     }
 
     let errorMessage = (
@@ -69,18 +69,41 @@ const SignIn: FunctionComponent<SignInProps> = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>User Sign In</h2>
                     {error && <span className="invalid-feedback">{error}</span>}
-                    <input {...register("email")} type="email" placeholder="Email *" onChange={handleChange} className={`form-control ${errors.email ? "is-invalid" : ""}`}></input>
-                    <input {...register("password")} type="password" placeholder="Password *" className={`form-control ${errors.password ? "is-invalid" : ""}`}></input>
+                    <input
+                        {...register("email")}
+                        type="email"
+                        placeholder="Email *"
+                        onChange={handleChange}
+                        className={`form-control ${
+                            errors.email ? "is-invalid" : ""
+                        }`}
+                    />
+                    <input
+                        {...register("password")}
+                        type="password"
+                        placeholder="Password *"
+                        className={`form-control ${
+                            errors.password ? "is-invalid" : ""
+                        }`}
+                    />
                     {errorMessage}
                     <div className="inner-input">
-                        <input {...register("rememberMe")} type="checkbox" id="rememberMe"></input>
+                        <input
+                            {...register("rememberMe")}
+                            type="checkbox"
+                            id="rememberMe"
+                        />
                         <label htmlFor="rememberMe">Remember Me</label>
                         <Link to="/forgotPassword" className="sign_link">
                             Forgot Password?
                         </Link>
                     </div>
                     <div className="buttons-container">
-                        <button className="sign-in_bt" type="submit" disabled={loading}>
+                        <button
+                            className="sign-in_bt"
+                            type="submit"
+                            disabled={loading}
+                        >
                             Sign In
                         </button>
                         <Link to="/#" className="back_bt">
