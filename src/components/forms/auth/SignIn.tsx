@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./SignForms.css";
@@ -9,8 +9,8 @@ import * as Yup from "yup";
 
 const SignIn: FunctionComponent<SignInProps> = () => {
     const validationSchema = Yup.object().shape({
-        email: Yup.string().required(),
-        password: Yup.string().required(),
+        email: Yup.string().required(""),
+        password: Yup.string().required(""),
     });
 
     const {
@@ -21,11 +21,12 @@ const SignIn: FunctionComponent<SignInProps> = () => {
     } = useForm<SignInProps>({
         resolver: yupResolver(validationSchema),
     });
+
     const authContext = useAuth();
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    let [errorMessageText, setErrorMessageText] = useState<string>("");
     const navigate = useNavigate();
-    let errorMessageText: string = "";
 
     const onSubmit: SubmitHandler<SignInProps> = async (data) => {
         try {
@@ -43,9 +44,19 @@ const SignIn: FunctionComponent<SignInProps> = () => {
         setLoading(false);
     };
 
-    const handleChange = (e: any) => {
+    const formatEmptyFieldsLabel = () => {
+        setErrorMessageText("");
+        if (errors.password && errors.email) {
+            setErrorMessageText("Please fill marked fields");
+        } else if (errors.password || errors.email) {
+            setErrorMessageText("Please fill marked field");
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        formatEmptyFieldsLabel();
         for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
+            const key = localStorage.key(i);
             const value = localStorage.getItem(key || "");
             if (e.target.value === key) {
                 setValue("password", value || "");
@@ -53,40 +64,43 @@ const SignIn: FunctionComponent<SignInProps> = () => {
         }
     };
 
-    if (errors.password && errors.email) {
-        errorMessageText = "Please fill marked fields";
-    } else if (errors.password || errors.email) {
-        errorMessageText = "Please fill marked field";
-    }
-
-    let errorMessage = (
-        <span className="invalid-feedback">{errorMessageText}</span>
-    );
+    useEffect(() => {
+        formatEmptyFieldsLabel();
+    }, [errors]);
 
     return (
         <div className="container">
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>User Sign In</h2>
-                    {error && <span className="invalid-feedback">{error}</span>}
+                    {error && (
+                        <label id="invalid-signin" className="invalid-feedback">
+                            {error}
+                        </label>
+                    )}
                     <input
-                        {...register("email")}
+                        {...register("email", { onChange: handleChange })}
                         type="email"
                         placeholder="Email *"
-                        onChange={handleChange}
                         className={`form-control ${
                             errors.email ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signin"
                     />
                     <input
-                        {...register("password")}
+                        {...register("password", { onChange: handleChange })}
                         type="password"
                         placeholder="Password *"
                         className={`form-control ${
                             errors.password ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signin"
                     />
-                    {errorMessage}
+                    {errorMessageText && (
+                        <label id="invalid-signin" className="invalid-feedback">
+                            {errorMessageText}
+                        </label>
+                    )}
                     <div className="inner-input">
                         <input
                             {...register("rememberMe")}

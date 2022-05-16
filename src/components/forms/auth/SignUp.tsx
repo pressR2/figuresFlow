@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignForms.css";
@@ -19,7 +19,7 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
             .required("")
             .oneOf(
                 [Yup.ref("password"), null],
-                "Confirm Password does not match"
+                "Confirm password does not match"
             ),
     });
 
@@ -34,8 +34,8 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
     const authContext = useAuth();
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    let [errorMessageText, setErrorMessageText] = useState<string>("");
     const navigate = useNavigate();
-    let errorMessageText: string = "";
 
     const onSubmit: SubmitHandler<SignUpProps> = async (data) => {
         try {
@@ -49,72 +49,100 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
         setLoading(false);
     };
 
-    if (Object.keys(errors).length > 1 && Object.keys(errors).length <= 5) {
-        errorMessageText = "Please fill marked fields";
-    } else if (Object.keys(errors).length === 1) {
-        errorMessageText = "Please fill marked field";
-    }
+    const formatEmptyFieldsLabel = () => {
+        setErrorMessageText("");
+        if (Object.keys(errors).length > 1 && Object.keys(errors).length <= 5) {
+            setErrorMessageText("Please fill marked fields");
+        } else if (Object.keys(errors).length === 1) {
+            setErrorMessageText("Please fill marked field");
+        }
+    };
 
-    let errorMessage = (
-        <span className="invalid-feedback">{errorMessageText}</span>
-    );
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        formatEmptyFieldsLabel();
+    };
+
+    useEffect(() => {
+        formatEmptyFieldsLabel();
+    }, [errors]);
 
     return (
         <div className="container">
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Enter Your Details</h2>
-                    {error && <span className="invalid-feedback">{error}</span>}
+                    {error && (
+                        <label id="invalid-signup" className="invalid-feedback">
+                            {error}
+                        </label>
+                    )}
                     <input
-                        {...register("firstName")}
+                        {...register("firstName", { onChange: handleChange })}
                         placeholder="First Name *"
                         className={`form-control ${
                             errors.firstName ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signup"
                     />
                     <input
-                        {...register("lastName")}
+                        {...register("lastName", { onChange: handleChange })}
                         placeholder="Last Name *"
                         className={`form-control ${
                             errors.lastName ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signup"
                     />
                     <input
-                        {...register("email")}
+                        {...register("email", { onChange: handleChange })}
                         type="email"
                         placeholder="Email *"
                         className={`form-control ${
                             errors.email ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signup"
                     />
                     <input
-                        {...register("password")}
+                        {...register("password", { onChange: handleChange })}
                         type="password"
                         placeholder="Password *"
                         className={`form-control ${
                             errors.password ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signup invalid-password"
                     />
                     <input
-                        {...register("retypePassword")}
+                        {...register("retypePassword", {
+                            onChange: handleChange,
+                        })}
                         type="password"
                         placeholder="Retype Password *"
                         className={`form-control ${
                             errors.retypePassword ? "is-invalid" : ""
                         }`}
+                        aria-labelledby="invalid-signup invalid-retype-password"
                     />
-                    {errorMessage}
+                    {errorMessageText && (
+                        <label id="invalid-signup" className="invalid-feedback">
+                            {errorMessageText}
+                        </label>
+                    )}
                     {errors.password ? (
-                        <span className="invalid-feedback">
+                        <label
+                            id="invalid-password"
+                            className="invalid-feedback"
+                        >
                             {errors.password?.message}
-                        </span>
+                        </label>
                     ) : (
                         ""
                     )}
                     {errors.retypePassword ? (
-                        <span className="invalid-feedback">
+                        <label
+                            id="invalid-retype-password"
+                            className="invalid-feedback"
+                        >
                             {errors.retypePassword?.message}
-                        </span>
+                        </label>
                     ) : (
                         ""
                     )}

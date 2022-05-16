@@ -43,12 +43,19 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Password Reset</h2>
-                    {error && <span className="invalid-feedback">{error}</span>}
+                    {error && (
+                        <label htmlFor="email" className="invalid-feedback">
+                            {error}
+                        </label>
+                    )}
                     {message && (
-                        <span className="valid-feedback">{message}</span>
+                        <label htmlFor="email" className="valid-feedback">
+                            {message}
+                        </label>
                     )}
                     <input
                         {...register("email")}
+                        id="email"
                         type="email"
                         placeholder="Email *"
                         className={`form-control ${
@@ -56,9 +63,9 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
                         }`}
                     />
                     {errors.email ? (
-                        <span className="invalid-feedback">
+                        <label htmlFor="email" className="invalid-feedback">
                             Please fill marked field
-                        </span>
+                        </label>
                     ) : (
                         ""
                     )}
