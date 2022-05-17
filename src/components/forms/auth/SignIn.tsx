@@ -1,50 +1,123 @@
-import React, { FunctionComponent, useState} from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import "./SignForms.css";
 import { SignInProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const SignIn: FunctionComponent<SignInProps> = () => {
-    const { register } = useForm<SignInProps>();
-    const authContext  = useAuth();
-    const emailRef = React.useRef<HTMLInputElement>(null);
-    const passwordRef = React.useRef<HTMLInputElement>(null);
+    const validationSchema = Yup.object().shape({
+        email: Yup.string().required(""),
+        password: Yup.string().required(""),
+    });
+
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        formState: { errors },
+    } = useForm<SignInProps>({
+        resolver: yupResolver(validationSchema),
+    });
+
+    const authContext = useAuth();
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    let [errorMessageText, setErrorMessageText] = useState<string>("");
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-
+    const onSubmit: SubmitHandler<SignInProps> = async (data) => {
         try {
             setError("");
             setLoading(true);
-            await authContext?.signIn(emailRef.current!.value, passwordRef.current!.value);
+            await authContext?.signIn(data.email, data.password);
+            localStorage.setItem("rememberMe", String(data.rememberMe));
+            if (data.rememberMe) {
+                localStorage.setItem(data.email, data.password);
+            }
             navigate("/dashboard");
         } catch {
             setError("Faild to log in");
         }
         setLoading(false);
-    }
- 
+    };
+
+    const formatEmptyFieldsLabel = () => {
+        setErrorMessageText("");
+        if (errors.password && errors.email) {
+            setErrorMessageText("Please fill marked fields");
+        } else if (errors.password || errors.email) {
+            setErrorMessageText("Please fill marked field");
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        formatEmptyFieldsLabel();
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key || "");
+            if (e.target.value === key) {
+                setValue("password", value || "");
+            }
+        }
+    };
+
+    useEffect(() => {
+        formatEmptyFieldsLabel();
+    }, [errors]);
+
     return (
         <div className="container">
             <div className="form-container">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>User Sign In</h2>
-                    {error && alert(`${error}`)}
-                    <input {...register("email")} type="email" ref={emailRef} placeholder=" Email *"></input>
-                    <input {...register("password")} type="password" ref={passwordRef} placeholder=" Password *"></input>
+                    {error && (
+                        <label id="invalid-signin" className="invalid-feedback">
+                            {error}
+                        </label>
+                    )}
+                    <input
+                        {...register("email", { onChange: handleChange })}
+                        type="email"
+                        placeholder="Email *"
+                        className={`form-control ${
+                            errors.email ? "is-invalid" : ""
+                        }`}
+                        aria-labelledby="invalid-signin"
+                    />
+                    <input
+                        {...register("password", { onChange: handleChange })}
+                        type="password"
+                        placeholder="Password *"
+                        className={`form-control ${
+                            errors.password ? "is-invalid" : ""
+                        }`}
+                        aria-labelledby="invalid-signin"
+                    />
+                    {errorMessageText && (
+                        <label id="invalid-signin" className="invalid-feedback">
+                            {errorMessageText}
+                        </label>
+                    )}
                     <div className="inner-input">
-                        <input {...register("rememberMe")} type="checkbox" id="rememberMe"></input>
+                        <input
+                            {...register("rememberMe")}
+                            type="checkbox"
+                            id="rememberMe"
+                        />
                         <label htmlFor="rememberMe">Remember Me</label>
                         <Link to="/forgotPassword" className="sign_link">
                             Forgot Password?
                         </Link>
                     </div>
                     <div className="buttons-container">
-                        <button className="sign-in_bt" type="submit" disabled={loading}>
+                        <button
+                            className="sign-in_bt"
+                            type="submit"
+                            disabled={loading}
+                        >
                             Sign In
                         </button>
                         <Link to="/#" className="back_bt">

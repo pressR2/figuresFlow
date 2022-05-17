@@ -1,43 +1,80 @@
-import React, { FunctionComponent, useState} from "react";
+import { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import "./SignForms.css";
 import { ForgotPasswordProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
-    const { register } = useForm<ForgotPasswordProps>();
-    const authContext  = useAuth();
-    const emailRef = React.useRef<HTMLInputElement>(null);
+    const validationSchema = Yup.object().shape({
+        email: Yup.string().required(),
+    });
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<ForgotPasswordProps>({
+        resolver: yupResolver(validationSchema),
+    });
+
+    const authContext = useAuth();
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-
+    const onSubmit: SubmitHandler<ForgotPasswordProps> = async (data) => {
         try {
             setMessage("");
             setError("");
             setLoading(true);
-            await authContext?.resetPassword(emailRef.current!.value);
+            await authContext?.resetPassword(data.email);
             setMessage("Check your inbox for further instructions");
         } catch {
             setError("Faild to reset password");
         }
         setLoading(false);
-    }
- 
+    };
+
     return (
         <div className="container">
             <div className="form-container">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Password Reset</h2>
-                    {error && alert(`${error}`)}
-                    {message && alert(`${message}`)}
-                    <input {...register("email")} type="email" ref={emailRef} placeholder=" Email *"></input>
+                    {error && (
+                        <label htmlFor="email" className="invalid-feedback">
+                            {error}
+                        </label>
+                    )}
+                    {message && (
+                        <label htmlFor="email" className="valid-feedback">
+                            {message}
+                        </label>
+                    )}
+                    <input
+                        {...register("email")}
+                        id="email"
+                        type="email"
+                        placeholder="Email *"
+                        className={`form-control ${
+                            errors.email ? "is-invalid" : ""
+                        }`}
+                    />
+                    {errors.email ? (
+                        <label htmlFor="email" className="invalid-feedback">
+                            Please fill marked field
+                        </label>
+                    ) : (
+                        ""
+                    )}
                     <div className="buttons-container">
-                        <button className="reset_bt" type="submit" disabled={loading}>
+                        <button
+                            className="reset_bt"
+                            type="submit"
+                            disabled={loading}
+                        >
                             Reset
                         </button>
                         <Link to="/signIn" className="back_bt">

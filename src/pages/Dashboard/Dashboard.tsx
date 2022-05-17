@@ -4,19 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [error, setError] = useState<string>("");
-    const authContext  = useAuth();
+    const authContext = useAuth();
     const navigate = useNavigate();
 
     const handleLogOut = async () => {
         setError("");
-
         try {
             await authContext?.logOut();
             navigate("/signIn");
         } catch {
             setError("Fail to log out");
         }
-    }
+    };
 
     return (
         <div>
@@ -26,7 +25,7 @@ const Dashboard = () => {
                 Log out
             </button>
         </div>
-    )
-}
+    );
+};
 
 export default Dashboard;
