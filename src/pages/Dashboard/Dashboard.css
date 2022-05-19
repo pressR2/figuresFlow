@@ -1,0 +1,135 @@
+.top-nav {
+    overflow: hidden;
+    background-color: #f74f4f;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.nav-and-main_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 100vh;
+}
+
+.drawer-control {
+    padding: 25px 0 0 25px;
+    width: 27px;
+}
+
+.user-account {
+    padding-top: 16px;
+}
+
+.user-status {
+    padding-right: 25px;
+}
+
+.menu-header h2 {
+    color: #726a72;
+    font-weight: 500;
+    font-size: 1.9em;
+    margin: 14px 0 14.5px 30px;
+}
+
+.menu {
+    width: 0px;
+    overflow: auto;
+    transform: translate(-180px,0);
+    transition: all .3s ease-in-out;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1);
+}
+  
+.menu_visible {
+    height: 100vh;
+    width: 300px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items li {
+    margin: 40px 0 0 30px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+  
+.main h2 {
+    margin-left: 60px;
+}
+
+.user-drop-down {
+    width: 0px;
+    overflow: auto;
+}
+
+.user-drop-down_visible {
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    width: 250px;
+    top: 80px;
+    right: 0;
+    -webkit-box-shadow: 0 0 2px 2px rgb(0 0 0 / 5%);
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 5%);
+    margin-right: 30px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile,
+.user-logout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin: 20px 0 15px;
+}
+
+.user-logout {
+    margin: 15px 0 20px;
+}
+
+.user-info img,
+.user-icon,
+.user-logout-icon {
+    margin: 0 10px 0 20px;
+}
+
+.user-info img {
+    margin-top: 10px;
+}
+
+hr {
+    border-top: #302c2b;
+    margin-bottom: 0;
+}
+
+.invalid-feedback {
+    font-style: italic;
+    color: #dc3550;
+    margin-left: 20px;
+    padding-top: 5px;
+}
