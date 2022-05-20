@@ -20,3 +20,11 @@ export type AuthContextProps = {
     email: string;
     password: string;
 };
+
+export type SidenavProps = {
+    open: boolean;
+};
+
+export type TopNavProps = {
+    handleMenu: () => void;
+};
