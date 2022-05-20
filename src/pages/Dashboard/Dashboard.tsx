@@ -55,7 +55,7 @@ const Dashboard = () => {
                             className={
                                 openUserDropDown
                                     ? "user-drop-down"
-                                    : "user-drop-down_visible"
+                                    : "user-drop-down hide"
                             }
                         >
                             <div className="user-info">
@@ -95,7 +95,7 @@ const Dashboard = () => {
                     <h2>Content</h2>
                 </div>
             </div>
-            <div className={open ? "menu" : "menu_visible"}>
+            <div className={open ? "menu" : "menu hide"}>
                 <div className="menu-header">
                     <h2>figuresFlow</h2>
                 </div>
