@@ -146,23 +146,25 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
                     ) : (
                         ""
                     )}
-                    <div className="buttons-container">
+                    <div className="signup-btn-container">
                         <button
-                            className="sign-up_bt"
+                            className="signup-btn"
                             type="submit"
                             disabled={loading}
                         >
                             Sign Up
                         </button>
-                        <Link to="/#" className="back_bt">
+                        <Link to="/#" className="back-btn">
                             Back
                         </Link>
                     </div>
-                    <div className="inner-label">
-                        <p>Already Have An Account? Then</p>
-                        <Link to="/signIn" className="sign_link">
-                            Sign In
-                        </Link>
+                    <div className="signin-link">
+                        <p>
+                            Already Have An Account? Then{" "}
+                            <Link to="/signIn" className="sign-link">
+                                Sign In
+                            </Link>
+                        </p>
                     </div>
                 </form>
             </div>

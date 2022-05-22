@@ -101,32 +101,32 @@ const SignIn: FunctionComponent<SignInProps> = () => {
                             {errorMessageText}
                         </label>
                     )}
-                    <div className="inner-input">
-                        <input
-                            {...register("rememberMe")}
-                            type="checkbox"
-                            id="rememberMe"
-                        />
-                        <label htmlFor="rememberMe">Remember Me</label>
-                        <Link to="/forgotPassword" className="sign_link">
+                    <div className="inner-signin">
+                        <label className="remember-me">Remember Me
+                            <input
+                                {...register("rememberMe")}
+                                type="checkbox"
+                            />
+                        </label>
+                        <Link to="/forgotPassword" className="forgot-password-link">
                             Forgot Password?
                         </Link>
                     </div>
-                    <div className="buttons-container">
+                    <div className="signin-btn-container">
                         <button
-                            className="sign-in_bt"
+                            className="signin-btn"
                             type="submit"
                             disabled={loading}
                         >
                             Sign In
                         </button>
-                        <Link to="/#" className="back_bt">
+                        <Link to="/#" className="back-btn">
                             Back
                         </Link>
                     </div>
-                    <div className="inner-label">
+                    <div className="create-account-link">
                         <p>Don't have an account?</p>
-                        <Link to="/signUp" className="sign_link">
+                        <Link to="/signUp" className="sign-link">
                             Click here to create one
                         </Link>
                     </div>
