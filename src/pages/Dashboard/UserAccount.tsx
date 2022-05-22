@@ -50,7 +50,7 @@ const UserAccount = () => {
                         <span>Profile</span>
                     </Link>
                     {error && (
-                        <label className="invalid-feedback">{error}</label>
+                        <label className="invalid-logout">{error}</label>
                     )}
                     <Link
                         to="/#"
