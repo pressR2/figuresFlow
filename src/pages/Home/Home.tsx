@@ -7,7 +7,7 @@ function Home() {
         <div className="home-page-container">
             <div className="title-and-links">
                 <div className="title">
-                    <h1>Craft Hobby Journal</h1>
+                    <h1>FiguresFlow</h1>
                 </div>
                 <div className="buttons-container_home">
                     <ul className="link-list">
