@@ -58,7 +58,7 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
         }
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = () => {
         formatEmptyFieldsLabel();
     };
 

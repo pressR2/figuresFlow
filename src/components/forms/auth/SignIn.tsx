@@ -59,7 +59,8 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             const key = localStorage.key(i);
             const value = localStorage.getItem(key || "");
             if (e.target.value === key) {
-                setValue("password", value || "");
+                setValue("password", value || "", { shouldValidate: true });
+                setErrorMessageText("");
             }
         }
     };
