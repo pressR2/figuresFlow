@@ -1,21 +1,32 @@
 /***   DASHBOARD   ***/
 
-.dashboard {
+.dashboard-wrapper {
     display: flex;
     flex-direction: row-reverse;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
 }
 
 /***   NAV AND MAIN ***/
 
-.nav-and-main-container {
+#nav-and-main {
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+.nav-and-main {
     display: flex;
     flex-direction: column;
     width: 100%;
     background-color: #f2f2f2;
     height: 100vh;
+}
+
+.dashboard {
+    height: 100vh;
+}
+
+.dashboard h2 {
+    margin: 45px 0 0 60px;
 }
 
 .top-nav {
@@ -52,11 +63,18 @@
 
 /***   SIDENAV   ***/
 
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    height: 61px;
+    align-items: baseline;
+}
+
 .menu-header h2 {
     color: #726a72;
     font-weight: 500;
     font-size: 1.9em;
-    margin: 14px 0 14px 25px;
+    margin: 14px 0 0 25px;
 }
 
 .menu.hide {
@@ -74,15 +92,22 @@
 }
 
 .menu-items {
-    list-style-type: none;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
 }
 
-.menu-items li {
+.figures-link {
     font-weight: 500;
     font-size: 1.2em;
-    padding: 40px 27px 0;
+    padding: 20px 27px;
+    text-decoration: none;
+    color: #302c2b;
+}
+
+.figures-link:hover {
+    background-color: #f2f2f2;
 }
 
 /***   USER DROP DOWN   ***/
@@ -142,7 +167,7 @@
 
 hr {
     border-top: #302c2b;
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .invalid-logout {
@@ -153,14 +178,6 @@ hr {
 }
 
 /***   MEDIA QERIES   ***/
-
-@media only screen and (max-width: 374px) {
-    .menu-header h2 {
-        text-align: center;
-        margin-left: 0;
-    }
-}
-
 
 @media only screen and (max-width: 480px) {
     .drawer-control img {
@@ -175,8 +192,8 @@ hr {
     
     .menu-header h2 {
         font-size: 1.42em;
-        margin-bottom: 22px;
         margin-top: 16px;
+        width: 80%;
     }
 
     .menu-items li {
@@ -188,12 +205,34 @@ hr {
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     .menu-header h2 {
         font-size: 1.66em;
-        margin-bottom: 19px;
     }
 
     .menu-items li {
         font-size: 1.05em;
     }
+}
+
+
+@media only screen and (max-width: 550px) {
+    .menu {
+        height: 100vh;
+        width: 75%;
+        position: fixed;
+        left: 0;
+        transition: 0.3s ease-in-out;
+        background: #fff;
+    }
+ 
+    .close-btn {
+        padding: 19px;
+        cursor: pointer;
+    }
+
+    .close-icon {
+        background-image: url('../../images/close.svg');
+        background-repeat: no-repeat;
+        padding: 6px;
+    }  
 }
 
 
