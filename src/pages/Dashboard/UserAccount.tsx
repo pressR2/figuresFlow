@@ -43,7 +43,7 @@ const UserAccount = () => {
                 </div>
                 <hr></hr>
                 <div className="user-links">
-                    <Link to="/#" className="user-profile">
+                    <Link to="/profile" className="user-profile">
                         <span className="user-icon">
                             <img src={userIcon} alt=""></img>
                         </span>
