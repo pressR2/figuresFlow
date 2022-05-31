@@ -1,11 +1,12 @@
 import { FunctionComponent } from "react";
 import { TopNavProps } from "../../models";
 import UserAccount from "./UserAccount";
+
 import menuIcon from "../../images/menu.svg";
 
 const TopNav: FunctionComponent<TopNavProps> = (props) => {
     return (
-        <div className="nav-and-main-container">
+        <div id="nav-and-main">
             <div className="top-nav">
                 <div
                     className="drawer-control"
@@ -15,9 +16,6 @@ const TopNav: FunctionComponent<TopNavProps> = (props) => {
                     <img src={menuIcon} alt="" />
                 </div>
                 <UserAccount />
-            </div>
-            <div className="main">
-                <h2>Content</h2>
             </div>
         </div>
     );
