@@ -11,9 +11,14 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="dashboard">
-            <TopNav handleMenu={handleMenu} />
-            <Sidenav open={open} />
+        <div className="dashboard-wrapper">
+            <div className="nav-and-main">
+                <TopNav handleMenu={handleMenu} />
+                <div className="dashboard">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+            <Sidenav open={open} handleMenu={handleMenu} />
         </div>
     );
 };
