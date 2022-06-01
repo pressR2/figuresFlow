@@ -1,9 +1,8 @@
 /***   DASHBOARD   ***/
 
-.dashboard-wrapper {
+.figures-wrapper {
     display: flex;
     flex-direction: row-reverse;
-    min-height: 100vh;
 }
 
 /***   NAV AND MAIN ***/
@@ -222,7 +221,7 @@ hr {
         transition: 0.3s ease-in-out;
         background: #fff;
     }
- 
+
     .close-btn {
         padding: 19px;
         cursor: pointer;
