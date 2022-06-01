@@ -125,7 +125,7 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .title h1 {
-        color: rgb(253 244 167);
+        color: #fdf4a7;
         font-weight: bolder
     }
 
@@ -144,7 +144,7 @@
     .title h1 {
         font-size: 3.8em;
         margin-left: 40px;
-        color: #fffbda;
+        color: #fdf4a7;
         font-weight: bolder
     }
 
