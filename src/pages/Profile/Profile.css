@@ -1,0 +1,28 @@
+.figures-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.nav-and-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 100vh;
+}
+
+.profile {
+    height: 100vh;
+}
+
+.profile h2 {
+    margin: 45px 0 0 60px;
+}
+
+.loggedin-user {
+    margin: 20px 0 0 60px;
+}
+
+.loggedin-user span {
+    font-weight: bold;
+}

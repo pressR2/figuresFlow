@@ -1,30 +1,13 @@
-import { useState } from "react";
-import { useAuth } from "../../services/auth/AuthContext";
-import { useNavigate } from "react-router-dom";
+import NavWrapper from "../../components/NavWrapper/NavWrapper";
+import "./Dashboard.css";
 
 const Dashboard = () => {
-    const [error, setError] = useState<string>("");
-    const authContext = useAuth();
-    const navigate = useNavigate();
-
-    const handleLogOut = async () => {
-        setError("");
-        try {
-            await authContext?.logOut();
-            navigate("/signIn");
-        } catch {
-            setError("Fail to log out");
-        }
-    };
-
     return (
-        <div>
-            <h2>Dashboard</h2>
-            {error && alert(`${error}`)}
-            <button className="sign-in_bt" type="button" onClick={handleLogOut}>
-                Log out
-            </button>
-        </div>
+        <NavWrapper>
+            <div className="dashboard">
+                <h2>Dashboard</h2>
+            </div>
+        </NavWrapper>   
     );
 };
 

@@ -69,21 +69,21 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
                     ) : (
                         ""
                     )}
-                    <div className="buttons-container">
+                    <div className="password-reset-btn-container">
                         <button
-                            className="reset_bt"
+                            className="reset-btn"
                             type="submit"
                             disabled={loading}
                         >
                             Reset
                         </button>
-                        <Link to="/signIn" className="back_bt">
+                        <Link to="/signIn" className="back-btn">
                             Back
                         </Link>
                     </div>
-                    <div className="inner-label">
+                    <div className="create-account-link">
                         <p>Don't have an account?</p>
-                        <Link to="/signUp" className="sign_link">
+                        <Link to="/signUp" className="sign-link">
                             Click here to create one
                         </Link>
                     </div>

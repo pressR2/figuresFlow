@@ -1,3 +1,5 @@
+/***   MAIN   ***/
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -5,6 +7,8 @@
     align-items: center;
     justify-content: center;
 }
+
+/***   FORM   ***/
 
 .form-container {
     width: 580px;
@@ -16,7 +20,7 @@ form {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
+	padding: 0 35px;
     border: 1px solid #e0dbdb;
     border-radius: 8px;
     box-shadow: 0 1px 35px rgba(0, 0, 0, 0.02), 0 7px 15px rgba(0, 0, 0, 0.15);
@@ -24,11 +28,13 @@ form {
 
 .form-control {
 	border: none;
-	padding: 12px 2px;
+	padding: 12px 0 12px 2px;
 	margin: 8px 0;
 	width: 100%;
     border-bottom: 1px solid #808080;
 }
+
+/***   FORM VALIDATION   ***/
 
 .is-invalid {
     border: 1px solid #dc3550;
@@ -49,79 +55,154 @@ form {
     color: #2c934c;
 }
 
-.inner-input {
+/***   INNER SIGN IN   ***/
+
+.inner-signin {
     display: flex;
-    flex-direction: row;
-    margin: 25px 0 8px;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+    margin-top: 10px;
 }
 
-.inner-input :first-child {
+.remember-me {
+    cursor: pointer;
+}
+
+.remember-me :first-child {
+    margin-right: 10px;
+    cursor: pointer;
     width: 20px;
-    height: 15px;
 }
 
-.inner-input :nth-child(2) {
-    width: 65%;
+.inner-signin :first-child {
+    height: 17px;
+    display: flex;
+    flex-direction: row-reverse;
     font-weight: 500;
+    margin-left: 0;
+    padding: 16px 0 16px;
 }
 
-.buttons-container {
+/***   BUTTONS   ***/
+
+.signin-btn-container,
+.signup-btn-container {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    margin-top: 50px;
 }
 
-.back_bt {
+.signup-btn-container,
+.password-reset-btn-container {
+    margin-top: 30px;
+}
+
+.signin-btn-container {
+    margin-top: 10px;
+}
+
+.back-btn {
     background-color: #ece9e9;
     color: #808080;
     font-size: 13.33px;
-    box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
+    box-shadow: 0px 4px 12px -8px rgba(66, 68, 90, 1);
     transition: all ease 0.2s;
     text-decoration: none;
-    padding: 13px 60px;
+    padding: 17px 60px;
     border-radius: 2px;
-    margin-left: 20px;
+    margin-left: 40px;
     font-family: "Arial";
 }
 
-.reset_bt,
-.sign-in_bt,
-.sign-up_bt {
+.reset-btn,
+.signin-btn,
+.signup-btn {
     width: 150px;
 	border: 1px solid #ff4b2b;
 	background-color: #ff4b2b;
 	color: #fff;
-	padding: 12px 45px;
+	padding: 16px 45px;
 	letter-spacing: 1px;
     border-radius: 2px;
     box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
     transition: all ease 0.2s;
 }
 
-.reset_bt:hover,
-.sign-in_bt:hover,
-.sign-up_bt:hover,
-.back_bt:hover {
+.reset-btn:hover,
+.signin-btn:hover,
+.signup-btn:hover,
+.back-btn:hover {
     cursor: pointer;
     transform: translateY(-1px);
-    box-shadow: 0px 10px 20px 2px rgba(104, 68, 68, 0.22);
+    box-shadow: 0px 17px 32px -20px rgba(66, 68, 90, 1);
 }
 
-.inner-label {
+/***   LINKS   ***/
+
+.create-account-link,
+.signin-link {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 20px 0;
+    margin: 7px 0 12px;
+    align-items: baseline;
 }
 
-.inner-label :first-child {
-    margin-right: 7px;
+.create-account-link :first-child {
+    margin-bottom: 0;
+    margin-right: 10px;
 }
 
-.sign_link,
-.forgot-password_link {
+.sign-link,
+.forgot-password-link {
     text-decoration: none;
+    padding: 14px 0 14px;
+    color: #0055f2;
+}
+
+/*** MEDIA QERIES   ***/
+
+@media only screen and (max-width: 319px) {
+    form h2 {
+        font-size: 1.3em;
+    }
+}
+
+
+@media only screen and (max-width: 413px) {
+    .inner-signin {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media only screen and (max-width: 445px) {
+    .create-account-link,
+    .signin-link,
+    .signin-btn-container,
+    .signup-btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-btn,
+    .signin-btn,
+    .reset-btn {
+        margin-bottom: 35px;
+        width: 100%;
+    }
+
+    .back-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: block;
+        text-align: center;
+    }
+
+    .create-account-link :first-child {
+        margin-right: 0;
+    }
 }
