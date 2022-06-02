@@ -147,11 +147,12 @@
 .user-logout {
     text-decoration: none;
     color: black;
-    margin: 20px 0 15px;
+    padding: 20px 0 15px;
 }
 
-.user-logout {
-    margin: 15px 0 20px;
+.user-profile:hover,
+.user-logout:hover {
+    background-color: #f2f2f2;
 }
 
 .user-info img,
@@ -166,7 +167,7 @@
 
 hr {
     border-top: #302c2b;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .invalid-logout {
