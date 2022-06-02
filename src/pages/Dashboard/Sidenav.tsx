@@ -6,11 +6,12 @@ import MediaQuery from "react-responsive";
 
 const Sidenav: FunctionComponent<SidenavProps> = (props) => {
     const { pathname } = useLocation();
+    const { open } = props;
 
     return (
         <>
             <MediaQuery maxWidth={550}>
-                <div className={props.open ? "menu" : "menu hide"}>
+                <div className={open ? "menu" : "menu hide"}>
                     <div className="menu-header">
                         <h2>figuresFlow</h2>
                         <div
@@ -59,7 +60,7 @@ const Sidenav: FunctionComponent<SidenavProps> = (props) => {
                 </div>
             </MediaQuery>
             <MediaQuery minWidth={551}>
-                <div className={props.open ? "menu hide" : "menu"}>
+                <div className={open ? "menu" : "menu hide"}>
                     <div className="menu-header">
                         <h2>figuresFlow</h2>
                         <div

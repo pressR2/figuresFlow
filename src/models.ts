@@ -22,7 +22,7 @@ export type AuthContextProps = {
 };
 
 export type SidenavProps = {
-    open: boolean | null;
+    open: boolean;
     handleMenu: () => void;
 };
 

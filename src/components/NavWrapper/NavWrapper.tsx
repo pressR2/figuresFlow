@@ -3,10 +3,10 @@ import TopNav from "../../pages/Dashboard/TopNav";
 import Sidenav from "../../pages/Dashboard/Sidenav";
 
 const NavWrapper = (props: any) => {
-    const [open, setOpen] = useState<boolean | null>(null);
+    const [open, setOpen] = useState<boolean>(true);
 
     const handleMenu = () => {
-        setOpen(!open);
+        setOpen(prevState => !prevState);
     };
 
     return (
