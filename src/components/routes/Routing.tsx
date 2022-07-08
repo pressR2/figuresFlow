@@ -9,6 +9,7 @@ import Profile from "../../pages/Profile/Profile";
 import Figures from "../../pages/Figures/Figures";
 import Figures2 from "../../pages/Figures/Figures2";
 import Figures3 from "../../pages/Figures/Figures3";
+import DataTable from "../../pages/FiguresList/DataTable";
 
 const Routing = () => {
   const authContext = useAuth();
@@ -34,6 +35,7 @@ const Routing = () => {
           }
         />
         <Route path="/forgotPassword" element={<ForgotPassword email="" />} />
+        <Route path="/figuresList" element={<DataTable/>} />
         {authContext?.currentUser !== null ? (
           <>
             <Route path="/dashboard" element={<Dashboard />} />
