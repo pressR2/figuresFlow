@@ -11,7 +11,13 @@ interface IauthContext {
     logOut: () => any;
 }
 
-const AuthContext = React.createContext<IauthContext | null>(null);
+const AuthContext = React.createContext<IauthContext>({
+    currentUser: null,
+    signUp: (email: string, password: string) => {},
+    signIn: (email: string, password: string) => {},
+    resetPassword: (email: string) => {},
+    logOut: () => {},
+});
 
 export const useAuth = () => {
     return useContext(AuthContext)
