@@ -25,6 +25,14 @@ const Sidenav: FunctionComponent<SidenavProps> = (props) => {
                     <hr></hr>
                     <ul className="menu-items">
                         <Link
+                            to="/figuresList"
+                            className={`figures-link ${
+                                pathname === "/figuresList" ? "link" : ""
+                            }`}
+                        >
+                            Figures List
+                        </Link>
+                        <Link
                             to="/dashboard"
                             className={`figures-link ${
                                 pathname === "/dashboard" ? "link" : ""
@@ -73,6 +81,14 @@ const Sidenav: FunctionComponent<SidenavProps> = (props) => {
                     </div>
                     <hr></hr>
                     <ul className="menu-items">
+                        <Link
+                            to="/figuresList"
+                            className={`figures-link ${
+                                pathname === "/figuresList" ? "link" : ""
+                            }`}
+                        >
+                            Figures List
+                        </Link>
                         <Link
                             to="/dashboard"
                             className={`figures-link ${

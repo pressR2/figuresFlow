@@ -15,7 +15,8 @@
     height: 100vh;
 }
 
-.figures h2 {
+.figures h2,
+.figures-list h2 {
     margin: 45px 0 0 60px;
 }
 
