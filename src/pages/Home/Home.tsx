@@ -4,7 +4,7 @@ import "./Home.css";
 const Home = () => {
     return (
         <div className="home-container">
-            <div className="home-image" role="image">
+            <div className="home-image" role="img">
                 <div className="title-and-btn">
                     <div className="title">
                         <h1>FiguresFlow</h1>
