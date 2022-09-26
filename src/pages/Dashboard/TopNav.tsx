@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { TopNavProps } from "../../models";
 import UserAccount from "./UserAccount";
-
 import menuIcon from "../../images/menu.svg";
 
 const TopNav: FunctionComponent<TopNavProps> = (props) => {

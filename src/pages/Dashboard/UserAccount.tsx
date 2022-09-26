@@ -45,7 +45,7 @@ const UserAccount = () => {
                 <div className="user-links">
                     <Link to="/profile" className="user-profile">
                         <span className="user-icon">
-                            <img src={userIcon} alt=""></img>
+                            <img src={userIcon} alt="" />
                         </span>
                         <span>Profile</span>
                     </Link>
@@ -58,7 +58,7 @@ const UserAccount = () => {
                         onClick={handleLogOut}
                     >
                         <span className="user-logout-icon">
-                            <img src={logOutIcon} alt=""></img>
+                            <img src={logOutIcon} alt="" />
                         </span>
                         <span>Logout</span>
                     </Link>
