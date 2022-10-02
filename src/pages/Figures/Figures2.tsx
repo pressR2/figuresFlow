@@ -4,9 +4,9 @@ import "./Figures.css";
 const Figures2 = () => {
     return (
         <NavWrapper>
-            <div className="figures">
+            <section className="figures">
                 <h2>Figures 2</h2>
-            </div>
+            </section>
         </NavWrapper>         
     );
 };

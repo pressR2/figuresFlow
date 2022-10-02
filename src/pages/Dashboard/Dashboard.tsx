@@ -4,9 +4,9 @@ import "./Dashboard.css";
 const Dashboard = () => {
     return (
         <NavWrapper>
-            <div className="dashboard">
+            <section className="dashboard">
                 <h2>Dashboard</h2>
-            </div>
+            </section>
         </NavWrapper>
     );
 };

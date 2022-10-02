@@ -1,11 +1,11 @@
 import { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import "./SignForms.css";
 import { ForgotPasswordProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import "./SignForms.css";
 
 const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
     const validationSchema = Yup.object().shape({
@@ -39,20 +39,20 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
     };
 
     return (
-        <div className="container">
-            <div className="form-container">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h2>Password Reset</h2>
-                    {error && (
-                        <label htmlFor="email" className="invalid-feedback">
-                            {error}
-                        </label>
-                    )}
-                    {message && (
-                        <label htmlFor="email" className="valid-feedback">
-                            {message}
-                        </label>
-                    )}
+        <div className="form-container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h2>Password Reset</h2>
+                {error && (
+                    <label htmlFor="email" className="invalid-feedback">
+                        {error}
+                    </label>
+                )}
+                {message && (
+                    <label htmlFor="email" className="valid-feedback">
+                        {message}
+                    </label>
+                )}
+                <section>
                     <input
                         {...register("email")}
                         id="email"
@@ -69,26 +69,26 @@ const ForgotPassword: FunctionComponent<ForgotPasswordProps> = () => {
                     ) : (
                         ""
                     )}
-                    <div className="password-reset-btn-container">
-                        <button
-                            className="reset-btn"
-                            type="submit"
-                            disabled={loading}
-                        >
-                            Reset
-                        </button>
-                        <Link to="/signIn" className="back-btn">
-                            Back
-                        </Link>
-                    </div>
-                    <div className="create-account-link">
-                        <p>Don't have an account?</p>
-                        <Link to="/signUp" className="sign-link">
-                            Click here to create one
-                        </Link>
-                    </div>
-                </form>
-            </div>
+                </section>
+                <section className="password-reset-btn-container">
+                    <button
+                        className="reset-btn"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        Reset
+                    </button>
+                    <Link to="/signIn" className="back-btn">
+                        Back
+                    </Link>
+                </section>
+                <section className="create-account-link">
+                    <p>Don't have an account?</p>
+                    <Link to="/signUp" className="sign-link">
+                        Click here to create one
+                    </Link>
+                </section>
+            </form>
         </div>
     );
 };

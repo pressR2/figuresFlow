@@ -7,13 +7,13 @@ const Profile = () => {
 
     return (
         <NavWrapper>
-            <div className="profile">
+            <section className="profile">
                 <h2>Profile</h2>
                 <p className="loggedin-user">
-                    <span>Email: </span>
+                    <strong>Email: </strong>
                     {authContext?.currentUser?.email}
                 </p>
-            </div>
+            </section>
         </NavWrapper>  
     );
 };

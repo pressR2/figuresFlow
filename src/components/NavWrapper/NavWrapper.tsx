@@ -6,16 +6,18 @@ const NavWrapper = (props: any) => {
     const [open, setOpen] = useState<boolean>(true);
 
     const handleMenu = () => {
-        setOpen(prevState => !prevState);
+        setOpen((prevState) => !prevState);
     };
 
     return (
         <div className="figures-wrapper">
-            <div className="nav-and-main">
+            <nav>
+                <Sidenav open={open} handleMenu={handleMenu} />
                 <TopNav handleMenu={handleMenu} />
+            </nav>
+            <main className={open ? "main" : "main full-width"}>
                 {props.children}
-            </div>
-            <Sidenav open={open} handleMenu={handleMenu} />
+            </main>
         </div>
     );
 };

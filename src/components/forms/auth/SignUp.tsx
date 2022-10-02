@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignForms.css";
 import { SignUpProps } from "../../../models";
 import { useAuth } from "../../../services/auth/AuthContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import "./SignForms.css";
 
 const SignUp: FunctionComponent<SignUpProps> = () => {
     const validationSchema = Yup.object().shape({
@@ -67,15 +67,15 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
     }, [errors]);
 
     return (
-        <div className="container">
-            <div className="form-container">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h2>Enter Your Details</h2>
-                    {error && (
-                        <label id="invalid-signup" className="invalid-feedback">
-                            {error}
-                        </label>
-                    )}
+        <div className="form-container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h2>Enter Your Details</h2>
+                {error && (
+                    <label id="invalid-signup" className="invalid-feedback">
+                        {error}
+                    </label>
+                )}
+                <section>
                     <input
                         {...register("firstName", { onChange: handleChange })}
                         placeholder="First Name *"
@@ -146,28 +146,28 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
                     ) : (
                         ""
                     )}
-                    <div className="signup-btn-container">
-                        <button
-                            className="signup-btn"
-                            type="submit"
-                            disabled={loading}
-                        >
-                            Sign Up
-                        </button>
-                        <Link to="/#" className="back-btn">
-                            Back
+                </section>
+                <section className="signup-btn-container">
+                    <button
+                        className="signup-btn"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        Sign Up
+                    </button>
+                    <Link to="/#" className="back-btn">
+                        Back
+                    </Link>
+                </section>
+                <section className="signin-link">
+                    <p>
+                        Already Have An Account? Then{" "}
+                        <Link to="/signIn" className="sign-link">
+                            Sign In
                         </Link>
-                    </div>
-                    <div className="signin-link">
-                        <p>
-                            Already Have An Account? Then{" "}
-                            <Link to="/signIn" className="sign-link">
-                                Sign In
-                            </Link>
-                        </p>
-                    </div>
-                </form>
-            </div>
+                    </p>
+                </section>
+            </form>
         </div>
     );
 };

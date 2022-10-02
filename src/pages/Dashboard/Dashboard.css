@@ -2,34 +2,16 @@
 
 .figures-wrapper {
     display: flex;
-    flex-direction: row-reverse;
 }
 
-/***   NAV AND MAIN ***/
+/***   NAV   ***/
 
-#nav-and-main {
-    width: 100%;
-    background-color: #f2f2f2;
-}
-
-.nav-and-main {
+nav {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    background-color: #f2f2f2;
-    height: 100vh;
-}
-
-.dashboard {
-    height: 100vh;
-}
-
-.dashboard h2 {
-    margin: 45px 0 0 60px;
 }
 
 .top-nav {
-    overflow: hidden;
     background-color: #f74f4f;
     height: 70px;
     display: flex;
@@ -38,8 +20,37 @@
     justify-content: space-between;
 }
 
+/***   MAIN CONTENT   ***/
+
+main {
+    width: calc(100% - 300px);
+    position: absolute;
+    top: 70px;
+    left: 300px;
+    height: calc(100vh - 70px);
+    background-color: #f2f2f2;
+    transition: 0.3s ease-in-out;
+}
+
+main.full-width {
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+.main h2 {
+    margin: 45px 0 0 60px;
+}
+
+.dashboard h2 {
+    margin: 45px 0 0 60px;
+}
+
 .drawer-control {
     cursor: pointer;
+    background-color: #f74f4f;
+    border: none;
 }
 
 .drawer-control img {
@@ -47,17 +58,33 @@
     width: 27px;
 }
 
+.user-account {
+    list-style: none;
+    width: 77px;
+    height: 70px;
+    display: list-item;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
 .user-status {
-    margin: 10px 18px 0 0;
     cursor: pointer;
 }
 
 .user-status img {
-    padding: 7px;
+    padding: 7px 0;
+    width: 44px;
+    height: 40px;
 }
 
-.main h2 {
-    margin: 45px 0 0 60px;
+.dropdown-caret {
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    color: white;
 }
 
 /***   SIDENAV   ***/
@@ -65,8 +92,9 @@
 .menu-header {
     display: flex;
     justify-content: space-between;
-    height: 61px;
+    height: 70px;
     align-items: baseline;
+    background-color: #fff;
 }
 
 .menu-header h2 {
@@ -76,14 +104,21 @@
     margin: 14px 0 0 25px;
 }
 
+.close-btn {
+    padding: 19px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
 .menu.hide {
     width: 0px;
     overflow: auto;
-    transform: translate(-180px,0);
-    transition: all .3s ease-in-out;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1);
+    transform: translate(-180px, 0);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.1);
 }
-  
+
 .menu {
     height: 100vh;
     width: 300px;
@@ -109,15 +144,15 @@
     background-color: #f2f2f2;
 }
 
-/***   USER DROP DOWN   ***/
-  
-.user-drop-down.hide {
+/***   DROP DOWN MENU   ***/
+
+.drop-down-menu.hide {
     width: 0px;
     overflow: auto;
     margin-right: -10px;
 }
 
-.user-drop-down {
+.drop-down-menu {
     background: #fff;
     border-radius: 3px;
     position: absolute;
@@ -130,45 +165,48 @@
     margin-right: 20px;
     word-break: break-all;
     z-index: 1;
+    padding: 0;
 }
 
-.user-info,
-.user-profile,
-.user-logout {
+.current-user,
+.drop-down-item {
     display: flex;
     flex-direction: row;
 }
 
-.user-links {
-    display: flex;
-    flex-direction: column;
+.current-user {
+    align-items: center;
 }
 
-.user-profile,
-.user-logout {
+.drop-down-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.drop-down-item {
     text-decoration: none;
     color: black;
     padding: 20px 0 15px;
 }
 
-.user-profile:hover,
-.user-logout:hover {
+.drop-down-item:hover {
     background-color: #f2f2f2;
 }
 
-.user-info img,
+.current-user img,
 .user-icon,
 .user-logout-icon {
     margin: 0 10px 0 20px;
 }
 
-.user-info img {
+.current-user img {
     margin-top: 10px;
 }
 
 hr {
     border-top: #302c2b;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
 .invalid-logout {
@@ -190,7 +228,7 @@ hr {
         padding: 7px;
         width: 37px;
     }
-    
+
     .menu-header h2 {
         font-size: 1.42em;
         margin-top: 16px;
@@ -217,23 +255,20 @@ hr {
 @media only screen and (max-width: 550px) {
     .menu {
         height: 100vh;
-        width: 75%;
+        width: 100%;
         position: fixed;
         left: 0;
-        transition: 0.3s ease-in-out;
-        background: #fff;
-    }
-
-    .close-btn {
-        padding: 19px;
-        cursor: pointer;
     }
 
     .close-icon {
-        background-image: url('../../images/close.svg');
+        background-image: url("../../images/close.svg");
         background-repeat: no-repeat;
         padding: 6px;
-    }  
+    }
+
+    main {
+        width: 0;
+    }
 }
 
 

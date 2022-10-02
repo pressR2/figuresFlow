@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../services/auth/AuthContext";
 import userStatusIcon from "../../images/user-status.svg";
 import userIcon from "../../images/user.svg";
@@ -22,39 +22,42 @@ const UserAccount = () => {
     };
 
     const handleUser = () => {
-        setOpenUserDropDown(!openUserDropDown);
+        setOpenUserDropDown((prevState) => !prevState);
     };
 
     return (
-        <div className="user-account" onClick={handleUser} role="button">
-            <div className="user-status">
-                <img src={userStatusIcon} alt="" />
-            </div>
-            <div
+        <details>
+            <summary
+                className="user-account"
+                onClick={handleUser}
+                role="button"
+            >
+                <div className="user-status">
+                    <img src={userStatusIcon} alt="user image" />
+                </div>
+                <span className="dropdown-caret"></span>
+            </summary>
+            <menu
                 className={
-                    openUserDropDown ? "user-drop-down" : "user-drop-down hide"
+                    openUserDropDown ? "drop-down-menu" : "drop-down-menu hide"
                 }
             >
-                <div className="user-info">
+                <div className="current-user">
                     <img src={userStatusIcon} alt="" />
-                    <p className="user-name">
-                        {authContext?.currentUser?.email}
-                    </p>
+                    <strong>{authContext?.currentUser?.email}</strong>
                 </div>
                 <hr></hr>
-                <div className="user-links">
-                    <Link to="/profile" className="user-profile">
+                <ul className="drop-down-items">
+                    <Link to="/profile" className="drop-down-item">
                         <span className="user-icon">
                             <img src={userIcon} alt="" />
                         </span>
                         <span>Profile</span>
                     </Link>
-                    {error && (
-                        <label className="invalid-logout">{error}</label>
-                    )}
+                    {error && <label className="invalid-logout">{error}</label>}
                     <Link
                         to="/#"
-                        className="user-logout"
+                        className="drop-down-item"
                         onClick={handleLogOut}
                     >
                         <span className="user-logout-icon">
@@ -62,9 +65,9 @@ const UserAccount = () => {
                         </span>
                         <span>Logout</span>
                     </Link>
-                </div>
-            </div>
-        </div>
+                </ul>
+            </menu>
+        </details>
     );
 };
 
