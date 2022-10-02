@@ -1,15 +1,7 @@
-/***   HOME   ***/
-
-.home-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
 /***   IMAGE   ***/
 
 .home-image {
-    background: url('../../images/home-page.jpg') no-repeat center center fixed;
+    background: url("../../images/home-page.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -28,17 +20,14 @@
 }
 
 .title h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #726a72;
-    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
 /***   BUTTONS   ***/
 
 .home-btn-container {
-    margin-bottom: 40px;
-    text-align: center;
-    align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
@@ -49,6 +38,8 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .demo-btn,
@@ -92,7 +83,7 @@
 }
 
 
-@media only screen and (min-width: 412px) and (max-width: 767px) { 
+@media only screen and (min-width: 412px) and (max-width: 767px) {
     .title h1 {
         font-size: 3.4em;
     }
@@ -126,7 +117,7 @@
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .title h1 {
         color: #fdf4a7;
-        font-weight: bolder
+        font-weight: bolder;
     }
 
     .title h1 {
@@ -140,12 +131,12 @@
 }
 
 
-@media only screen and (min-width: 1025px) and (max-width: 1280px){
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
     .title h1 {
         font-size: 3.8em;
         margin-left: 40px;
         color: #fdf4a7;
-        font-weight: bolder
+        font-weight: bolder;
     }
 
     .title-and-btn {
@@ -167,13 +158,13 @@
     .btn-list {
         margin-right: 30px;
     }
-    
+
     .home-image {
         background-position: 120px 0px;
     }
 
     .title {
-        background-image: url('../../images/splash.svg');
+        background-image: url("../../images/splash.svg");
         background-repeat: no-repeat;
         display: flex;
         height: 170px;
@@ -203,9 +194,3 @@
         margin-left: 20px;
     }
 }
- 
-
-
-
-
-

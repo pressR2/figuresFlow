@@ -1,6 +1,6 @@
-/***   MAIN   ***/
+/***   FORM   ***/
 
-.container {
+.form-container {
     min-height: 100vh;
     display: flex;
     flex-direction: row;
@@ -8,29 +8,24 @@
     justify-content: center;
 }
 
-/***   FORM   ***/
-
-.form-container {
-    width: 580px;
-    max-width: 100%;
-}
-
 form {
     background-color: #fff;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 35px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 35px;
     border: 1px solid #e0dbdb;
     border-radius: 8px;
     box-shadow: 0 1px 35px rgba(0, 0, 0, 0.02), 0 7px 15px rgba(0, 0, 0, 0.15);
+    width: 518px;
+    max-width: 100%;
 }
 
 .form-control {
-	border: none;
-	padding: 12px 0 12px 2px;
-	margin: 8px 0;
-	width: 100%;
+    border: none;
+    padding: 12px 0 12px 2px;
+    margin: 8px 0;
+    width: 100%;
     border-bottom: 1px solid #808080;
 }
 
@@ -118,11 +113,11 @@ form {
 .signin-btn,
 .signup-btn {
     width: 150px;
-	border: 1px solid #ff4b2b;
-	background-color: #ff4b2b;
-	color: #fff;
-	padding: 16px 45px;
-	letter-spacing: 1px;
+    border: 1px solid #ff4b2b;
+    background-color: #ff4b2b;
+    color: #fff;
+    padding: 16px 45px;
+    letter-spacing: 1px;
     border-radius: 2px;
     box-shadow: 0px 4px 12px -6px rgba(66, 68, 90, 1);
     transition: all ease 0.2s;
@@ -148,8 +143,7 @@ form {
 }
 
 .create-account-link :first-child {
-    margin-bottom: 0;
-    margin-right: 10px;
+    margin: 16px 10px 0 0;
 }
 
 .sign-link,
@@ -194,10 +188,8 @@ form {
 
     .back-btn {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
+        margin: 0;
+        padding: 17px 0;
         display: block;
         text-align: center;
     }
