@@ -16,10 +16,10 @@
 			c0.508,0.254,0.967,0.575,1.39,0.932c5.71-4.762,9.399-11.882,9.536-19.9C53.246,13.32,41.587,1.254,26.953,1.004z"/>
 	</g>
 	<g>
-		<circle style="fill:#f5f3ed;" cx="46" cy="45" r="11"/>
+		<circle style="fill:#f5f3ed;" cx="46" cy="45" r="10" transform="rotate(-70 24 25)"/>
 	</g>
 	<g>
-		<circle style="fill:#71C386;" cx="46" cy="45" r="9"/>
+		<circle style="fill:#71C386;" cx="46" cy="45" r="8" transform="rotate(-70 24 25)"/>
 	</g>
 </g>
 <g>
