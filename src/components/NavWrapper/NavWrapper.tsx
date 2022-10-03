@@ -1,8 +1,9 @@
 import { useState } from "react";
 import TopNav from "../../pages/Dashboard/TopNav";
 import Sidenav from "../../pages/Dashboard/Sidenav";
+import { ProtectedRouteProps } from "../../models";
 
-const NavWrapper = (props: any) => {
+const NavWrapper = ({ children }: ProtectedRouteProps) => {
     const [open, setOpen] = useState<boolean>(true);
 
     const handleMenu = () => {
@@ -16,7 +17,7 @@ const NavWrapper = (props: any) => {
                 <TopNav handleMenu={handleMenu} />
             </nav>
             <main className={open ? "main" : "main full-width"}>
-                {props.children}
+                {children}
             </main>
         </div>
     );

@@ -29,3 +29,7 @@ export type SidenavProps = {
 export type TopNavProps = {
     handleMenu: () => void;
 };
+
+export type ProtectedRouteProps = {
+    children: React.ReactNode;
+};
