@@ -2,6 +2,7 @@
 
 .figures-wrapper {
     display: flex;
+    background-color: #f2f2f2;
 }
 
 /***   NAV   ***/
@@ -30,6 +31,7 @@ main {
     height: calc(100vh - 70px);
     background-color: #f2f2f2;
     transition: all 0.3s ease-in-out;
+    overflow: scroll;
 }
 
 main.full-width {
@@ -39,10 +41,6 @@ main.full-width {
 }
 
 .main h2 {
-    margin: 45px 0 0 60px;
-}
-
-.dashboard h2 {
     margin: 45px 0 0 60px;
 }
 
@@ -118,6 +116,7 @@ main.full-width {
     height: 100vh;
     width: 300px;
     transition: all 0.3s ease-in-out;
+    background-color: #fff;
 }
 
 .menu-items {
@@ -221,7 +220,7 @@ hr {
 
     .user-status img {
         padding: 7px;
-        width: 37px;
+        width: 42px;
     }
 
     .menu-header h2 {
@@ -271,13 +270,5 @@ hr {
 
     main.full-width {
         visibility: visible;
-    }
-}
-
-
-@media only screen and (max-width: 768px) {
-    .menu-items li {
-        padding-left: 25px;
-        padding-right: 25px;
     }
 }

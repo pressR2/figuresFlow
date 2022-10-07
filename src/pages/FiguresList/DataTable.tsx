@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
@@ -14,9 +15,9 @@ import Grow from "@mui/material/Grow";
 import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import MenuList from "@mui/material/MenuList";
-import { Link } from "react-router-dom";
 import NavWrapper from "../../components/NavWrapper/NavWrapper";
 import "../Figures/Figures.css";
+import "./DataTable.css";
 
 interface RowFigureProps {
     id: number;
@@ -152,56 +153,26 @@ const DataTable = () => {
             <div className="figures-list">
                 <h2>Figures List</h2>
             </div>
-            <Box
-                sx={{
-                    height: "calc(100% -60px)",
-                    marginTop: "60px",
-                    flex: "1 1 auto",
-                    display: "flex",
-                }}
-            >
-                <div style={{ height: 400, width: "100%" }}>
-                    <div
-                        style={{
-                            marginBottom: "17px",
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: "50%",
-                                display: "flex",
-                                alignItems: "center",
-                            }}
-                        >
+            <Box className="box">
+                <div className="grid">
+                    <div className="button-container">
+                        <div className="action-search-btn">
                             <ButtonGroup
+                                className="button-group"
                                 disableElevation
                                 variant="contained"
                                 ref={anchorRef}
                                 aria-label="split button"
-                                style={{
-                                    width: 150,
-                                    height: "41px",
-                                    marginLeft: "17px",
-                                    marginRight: "30px",
-                                    borderRadius: "4px",
-                                }}
                             >
                                 <Button
-                                    style={{
-                                        backgroundColor: "#1171b8",
-                                    }}
+                                    className="action-btn"
                                     onClick={() => handleClick(tableData)}
                                 >
                                     {options[selectedIndex]}
                                 </Button>
                                 <Button
+                                    className="drop-action-btn"
                                     size="small"
-                                    style={{
-                                        backgroundColor: "#1171b8",
-                                    }}
                                     aria-controls={
                                         open ? "split-button-menu" : undefined
                                     }
@@ -272,28 +243,13 @@ const DataTable = () => {
                                 )}
                             </Popper>
                             <input
-                                style={{
-                                    height: 38,
-                                    borderRadius: 4,
-                                    border: "1px solid #c4c4c4",
-                                    paddingLeft: "7px",
-                                    fontSize: "1rem",
-                                }}
                                 placeholder="Search"
                                 value={searchQuery}
                                 onChange={handleQueryChange}
                             />
                         </div>
                         <Button
-                            style={{
-                                border: "1px solid",
-                                borderRadius: 4,
-                                width: 150,
-                                height: "44px",
-                                backgroundColor: "#1171b8",
-                                color: "#fff",
-                                marginRight: "17px",
-                            }}
+                            className="add-figure-btn"
                             onClick={handleAddFigureClick}
                         >
                             Add Figure
