@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TopNav from "../../pages/Dashboard/TopNav";
-import SideNav from "../../pages/Dashboard/SideNav";
+import SideNav from "../../pages/Dashboard/Sidenav";
 import { ProtectedRouteProps } from "../../models";
 
 const NavWrapper = ({ children }: ProtectedRouteProps) => {
