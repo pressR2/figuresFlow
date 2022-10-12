@@ -10,6 +10,7 @@ import Figures2 from "../../pages/Figures/Figures2";
 import Figures3 from "../../pages/Figures/Figures3";
 import DataTable from "../../pages/FiguresList/DataTable";
 import ProtectedRoute from "../forms/auth/ProtectedRoute";
+import FigureDetails from "../../pages/FiguresList/FigureDetails";
 
 const Routing = () => {
     return (
@@ -81,6 +82,14 @@ const Routing = () => {
                     element={
                         <ProtectedRoute>
                             <DataTable />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="figuresList/figure/:figureId"
+                    element={
+                        <ProtectedRoute>
+                            <FigureDetails />
                         </ProtectedRoute>
                     }
                 />
