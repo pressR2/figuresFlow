@@ -124,14 +124,14 @@ const DataTable = () => {
                     </IconButton>
                     <IconButton
                         component={Link}
-                        to={params.row.id}
+                        to={`figure/${params.row.id}`}
                         aria-label="view"
                     >
                         <VisibilityIcon />
                     </IconButton>
                     <IconButton
                         component={Link}
-                        to={params.row.id}
+                        to={`figure/${params.row.id}`}
                         aria-label="edit"
                     >
                         <EditIcon />
