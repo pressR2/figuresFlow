@@ -8,7 +8,7 @@ const SideNav = ({ open, handleMenu }: SidenavProps) => {
         <aside>
             <div className={open ? "menu" : "menu hide"}>
                 <header className="menu-header">
-                    <h2>figuresFlow</h2>
+                    <h2>figures<span>Flow</span></h2>
                     <button
                         className="close-btn"
                         onClick={handleMenu}

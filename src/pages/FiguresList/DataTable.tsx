@@ -165,7 +165,11 @@ const DataTable = () => {
                                 aria-label="split button"
                             >
                                 <Button
-                                    className={arrIds.length !== 0 ? "action-btn" : "action-btn disabled"}
+                                    className={
+                                        arrIds.length !== 0
+                                            ? "action-btn"
+                                            : "action-btn disabled"
+                                    }
                                     onClick={() => handleClick(tableData)}
                                 >
                                     {options[selectedIndex]}

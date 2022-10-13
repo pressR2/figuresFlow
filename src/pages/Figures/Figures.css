@@ -4,9 +4,10 @@
 }
 
 .link {
-    background-color: #c8e8b1;
+    background-color: #e5f1fc;
+    color: #4285f4;
 }
 
 .link:hover {
-    background-color: #c8e8b1;
+    background-color: #e5f1fc;
 }

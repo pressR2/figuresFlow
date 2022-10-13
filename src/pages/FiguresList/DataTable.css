@@ -39,15 +39,24 @@ input {
     font-size: 1rem;
 }
 
+button.action-btn:not(:last-of-type),
+.action-btn:hover {
+    background-color: #ff3547;
+    color: #fff;
+    border-right: 1px solid #e72939 !important;
+    min-width: 110px;
+}
+
 button.action-btn.disabled:not(:last-of-type),
 .action-btn.disabled:hover {
-    background-color: #e1e1e1;
-    border: 1px solid #adadad;
+    background-color: #f2f5f8;
+    border: 1px solid #ff3547;
     color: #83909d;
 }
 
-.drop-action-btn {
-    background-color: #1976d2;
+button.drop-action-btn,
+button.drop-action-btn:hover {
+    background-color: #ff3547;
 }
 
 button.add-figure-btn {
@@ -55,13 +64,18 @@ button.add-figure-btn {
     border-radius: 4px;
     width: 150px;
     height: 48px;
-    background-color: #1976d2;
+    background-color: #ff3547;
     color: #fff;
     margin-right: 17px;
 }
 
 button.add-figure-btn:hover {
-    background-color: #1565c0;
+    background-color: #ff3547;
+}
+
+span.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+span.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: #ff3547;
 }
 
 @media only screen and (max-width: 890px) {

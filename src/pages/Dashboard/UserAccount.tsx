@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../services/auth/AuthContext";
-import userStatusIcon from "../../images/user-status.svg";
+import userStatusIcon from "../../images/user-img.svg";
 import userIcon from "../../images/user.svg";
 import logOutIcon from "../../images/logout.svg";
 
