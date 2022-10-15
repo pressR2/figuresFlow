@@ -282,10 +282,7 @@ hr {
     }
 
     main {
-        visibility: hidden;
-    }
-
-    main.full-width {
-        visibility: visible;
+        width: 100vw;
+        left: 0;
     }
 }
