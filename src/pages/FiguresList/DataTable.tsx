@@ -247,6 +247,7 @@ const DataTable = () => {
                                 )}
                             </Popper>
                             <input
+                                className="input-search"
                                 placeholder="Search"
                                 value={searchQuery}
                                 onChange={handleQueryChange}
