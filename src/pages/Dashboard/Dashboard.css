@@ -98,6 +98,8 @@ aside {
     height: 68px;
     align-items: baseline;
     background-color: #f2f5f8;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin: 0 0 10px 0;
 }
 
 .menu-header h2 {
@@ -214,12 +216,6 @@ aside {
 .current-user img {
     width: 45px;
     height: 65px;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    margin: 0 0 10px 0;
 }
 
 .invalid-logout {
