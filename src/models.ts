@@ -37,3 +37,8 @@ export type ProtectedRouteProps = {
 export type NavWrapperProps = {
     children: React.ReactNode;
 };
+
+export type MenuItemProps = {
+    children: React.ReactNode;
+    to: string;
+};
