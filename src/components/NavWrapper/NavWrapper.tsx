@@ -1,9 +1,9 @@
 import { useState } from "react";
 import TopNav from "../../pages/Dashboard/TopNav";
 import SideNav from "../../pages/Dashboard/Sidenav";
-import { ProtectedRouteProps } from "../../models";
+import { NavWrapperProps } from "../../models";
 
-const NavWrapper = ({ children }: ProtectedRouteProps) => {
+const NavWrapper = ({ children }: NavWrapperProps) => {
     const [open, setOpen] = useState<boolean>(true);
 
     const handleMenu = () => {

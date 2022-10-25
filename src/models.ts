@@ -33,3 +33,7 @@ export type TopNavProps = {
 export type ProtectedRouteProps = {
     children: React.ReactNode;
 };
+
+export type NavWrapperProps = {
+    children: React.ReactNode;
+};
