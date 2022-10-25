@@ -33,7 +33,7 @@ const DataTable = () => {
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [pageSize, setPageSize] = React.useState<number>(2);
     const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef<HTMLDivElement>(null);
+    const anchorRef = React.useRef<HTMLDivElement | null>(null);
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [arrIds, setArrIds] = useState<number[]>([]);
 
