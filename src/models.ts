@@ -23,11 +23,11 @@ export type AuthContextProps = {
 
 export type SidenavProps = {
     open: boolean;
-    handleMenu: () => void;
+    handleMenuToggle: () => void;
 };
 
 export type TopNavProps = {
-    handleMenu: () => void;
+    handleMenuToggle: () => void;
 };
 
 export type ProtectedRouteProps = {

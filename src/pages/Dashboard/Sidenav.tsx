@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { SidenavProps } from "../../models";
 import MediaQuery from "react-responsive";
 
-const SideNav = ({ open, handleMenu }: SidenavProps) => {
+const SideNav = ({ open, handleMenuToggle }: SidenavProps) => {
     const { pathname } = useLocation();
 
     return (
@@ -13,7 +13,7 @@ const SideNav = ({ open, handleMenu }: SidenavProps) => {
                     <h2>figures<span>Flow</span></h2>
                     <button
                         className="close-btn"
-                        onClick={handleMenu}
+                        onClick={handleMenuToggle}
                         type="button"
                     >
                         <img className="close-icon" alt="" />
@@ -69,7 +69,7 @@ const SideNav = ({ open, handleMenu }: SidenavProps) => {
                     <h2>figures<span>Flow</span></h2>
                     <button
                         className="close-btn"
-                        onClick={handleMenu}
+                        onClick={handleMenuToggle}
                         type="button"
                     >
                         <img className="close-icon" alt="" />

@@ -6,15 +6,15 @@ import { NavWrapperProps } from "../../models";
 const NavWrapper = ({ children }: NavWrapperProps) => {
     const [open, setOpen] = useState<boolean>(true);
 
-    const handleMenu = () => {
+    const handleMenuToggle = () => {
         setOpen((prevState) => !prevState);
     };
 
     return (
         <div className="figures-wrapper">
             <nav>
-                <SideNav open={open} handleMenu={handleMenu} />
-                <TopNav handleMenu={handleMenu} />
+                <SideNav open={open} handleMenuToggle={handleMenuToggle} />
+                <TopNav handleMenuToggle={handleMenuToggle} />
             </nav>
             <main className={open ? "main" : "main full-width"}>
                 {children}
