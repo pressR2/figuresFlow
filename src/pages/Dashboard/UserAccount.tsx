@@ -46,7 +46,6 @@ const UserAccount = () => {
                     <img src={userStatusIcon} alt="" />
                     <strong>{authContext?.currentUser?.email}</strong>
                 </div>
-                <hr></hr>
                 <ul className="drop-down-items">
                     <Link to="/profile" className="drop-down-item">
                         <span className="user-icon">
